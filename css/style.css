@@ -1,0 +1,133 @@
+/* Cores principais do projeto */
+:root {
+  --verde: #356859;
+  --verde-escuro: #244a40;
+  --bege: #f5f0e7;
+  --laranja: #ca7656;
+  --texto: #293a34;
+  --cinza: #6f7975;
+  --borda: #d9dfdc;
+  --branco: #fff;
+  --vermelho: #b84343;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #fdfcf9; color: var(--texto); font-family: Arial, Helvetica, sans-serif; line-height: 1.5; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+
+header { min-height: 72px; padding: 12px 6%; display: flex; align-items: center; justify-content: space-between; gap: 30px; background: white; border-bottom: 1px solid var(--borda); }
+.logo { display: flex; align-items: center; gap: 8px; color: var(--verde); font-size: 25px; font-weight: bold; }
+.logo span { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; background: var(--laranja); color: white; }
+nav { display: flex; gap: 25px; font-size: 14px; font-weight: bold; }
+nav a { padding: 8px 0; border-bottom: 2px solid transparent; }
+nav a:hover, nav .selecionado { color: var(--verde); border-color: var(--verde); }
+
+.banner { width: calc(100% - 50px); min-height: 540px; margin: 24px auto; padding: 65px 7%; display: flex; align-items: center; justify-content: space-between; overflow: hidden; position: relative; border-radius: 20px; background: var(--verde); color: white; }
+.texto-banner { width: 55%; position: relative; z-index: 2; }
+.texto-banner h1, .banner-anfitriao h1 { margin: 10px 0 18px; font-family: Georgia, serif; font-size: clamp(42px, 5vw, 72px); line-height: 1.05; }
+.texto-banner > p:not(.destaque) { max-width: 570px; margin-bottom: 28px; font-size: 18px; }
+.destaque { margin: 0; font-size: 12px; font-weight: bold; letter-spacing: 2px; }
+.verde { color: var(--verde); }
+.botao { display: inline-block; padding: 12px 19px; border: 0; border-radius: 7px; font-weight: bold; }
+.botao:hover { opacity: .88; }
+.botao-claro { background: white; color: var(--verde-escuro); }
+.botao-verde { background: var(--verde); color: white; }
+.botao-cinza { background: #e9edeb; color: var(--texto); }
+.botao-perigo { background: var(--vermelho); color: white; }
+
+.desenho-casa { width: 38%; height: 350px; position: relative; }
+.desenho-casa .sol { width: 100px; height: 100px; position: absolute; top: 10px; right: 5%; border-radius: 50%; background: #edbd6b; }
+.desenho-casa .telhado { width: 230px; height: 145px; position: absolute; left: 20%; top: 100px; background: #bd6c4e; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.desenho-casa .casa { width: 260px; height: 150px; position: absolute; left: 17%; top: 230px; background: #f1e7d5; }
+.desenho-casa .casa span { width: 50px; height: 85px; position: absolute; left: 105px; bottom: 0; background: #81513e; }
+
+.conteudo { width: min(1080px, calc(100% - 36px)); margin: auto; }
+.home-info { padding: 75px 0; }
+.home-info h2, .chamada-anfitriao h2, .conteudo-anfitriao h2 { margin: 7px 0 25px; font-family: Georgia, serif; font-size: 34px; }
+.passos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.passos article { padding: 24px; border: 1px solid var(--borda); border-radius: 10px; background: white; }
+.passos b { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: var(--bege); color: var(--laranja); }
+.passos h3 { margin-bottom: 5px; }
+.passos p { margin: 0; color: var(--cinza); }
+.chamada-anfitriao { width: min(1080px, calc(100% - 36px)); margin: 20px auto 80px; padding: 38px; display: flex; align-items: center; justify-content: space-between; gap: 30px; border-radius: 12px; background: var(--laranja); color: white; }
+.chamada-anfitriao h2 { margin-bottom: 5px; }
+.chamada-anfitriao p { margin: 0; }
+
+.pagina-interna { min-height: 700px; padding: 65px 0; }
+.cabecalho-pagina h1 { margin: 5px 0; font: bold 45px Georgia, serif; }
+.cabecalho-pagina > p:last-child { margin-top: 5px; color: var(--cinza); }
+#form-reserva, .form-simples { margin-top: 30px; padding: 30px; border: 1px solid var(--borda); border-radius: 10px; background: white; box-shadow: 0 8px 25px rgba(40,70,60,.08); }
+#form-reserva h2 { margin-top: 0; padding-bottom: 10px; border-bottom: 1px solid var(--borda); font-size: 20px; }
+.linha-form { display: flex; gap: 18px; }
+.campo { flex: 1; margin-bottom: 18px; }
+.campo.grande { flex: 2; }
+.campo label { display: block; margin-bottom: 5px; font-size: 14px; font-weight: bold; }
+.campo input, .campo select, .campo textarea { width: 100%; padding: 11px; border: 1px solid #cdd5d1; border-radius: 6px; background: #fff; }
+.campo input:focus, .campo select:focus, .campo textarea:focus { outline: 2px solid #bad0c8; border-color: var(--verde); }
+.campo small { color: var(--cinza); }
+.campo .erro { min-height: 19px; display: block; color: var(--vermelho); font-size: 12px; }
+.campo .invalido { border-color: var(--vermelho); }
+.total-form { margin-top: 5px; padding: 16px; display: flex; justify-content: space-between; border-radius: 7px; background: var(--bege); }
+.botoes-form { margin-top: 22px; display: flex; justify-content: flex-end; gap: 10px; }
+.mensagem { display: none; margin-bottom: 18px; padding: 12px; border-radius: 5px; }
+.mensagem.sucesso { display: block; background: #dff1e6; color: #23613e; }
+.mensagem.falha { display: block; background: #f7dfdf; color: #963b3b; }
+
+.topo-reservas { display: flex; align-items: end; justify-content: space-between; gap: 20px; }
+.indicadores { margin: 30px 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+.indicadores article { padding: 20px; display: flex; flex-direction: column; border: 1px solid var(--borda); border-radius: 8px; background: white; }
+.indicadores span { color: var(--cinza); font-size: 13px; }
+.indicadores strong { margin-top: 4px; color: var(--verde); font: bold 28px Georgia, serif; }
+.ferramentas { margin-bottom: 20px; padding: 15px; display: flex; align-items: end; justify-content: space-between; gap: 20px; background: var(--bege); border-radius: 8px; }
+.campo-busca label { display: block; margin-bottom: 4px; font-size: 13px; font-weight: bold; }
+.campo-busca input { width: 310px; padding: 9px; border: 1px solid var(--borda); border-radius: 5px; }
+.filtros { display: flex; gap: 6px; }
+.filtro { padding: 8px 12px; border: 1px solid var(--borda); border-radius: 20px; background: white; }
+.filtro.ativo, .filtro:hover { background: var(--verde); color: white; }
+.lista-reservas { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.cartao-reserva { padding: 20px; border: 1px solid var(--borda); border-left: 5px solid var(--verde); border-radius: 8px; background: white; }
+.cartao-reserva h2 { margin: 0; font-family: Georgia, serif; }
+.cartao-reserva .subtitulo { margin: 2px 0 18px; color: var(--cinza); }
+.dados-cartao { padding: 14px 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; border-top: 1px solid var(--borda); border-bottom: 1px solid var(--borda); }
+.dados-cartao span { display: block; color: var(--cinza); font-size: 12px; }
+.rodape-cartao { margin-top: 16px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.rodape-cartao strong { color: var(--verde); font-size: 18px; }
+.rodape-cartao button { padding: 7px 9px; border: 1px solid var(--borda); border-radius: 5px; background: #f7f7f7; }
+.rodape-cartao button:hover { background: var(--bege); }
+.status { float: right; padding: 4px 8px; border-radius: 15px; background: #e1eee9; color: var(--verde); font-size: 11px; font-weight: bold; }
+.status.finalizada { background: #eeeae3; color: var(--cinza); }
+.sem-reservas { padding: 50px; text-align: center; border: 1px dashed var(--borda); border-radius: 8px; }
+.sem-reservas span { font-size: 35px; color: var(--laranja); }
+.sem-reservas h2 { margin-bottom: 3px; }
+.sem-reservas p { margin-top: 0; color: var(--cinza); }
+.arquivo-local { margin-top: 35px; padding-top: 22px; display: flex; justify-content: space-between; align-items: center; gap: 20px; border-top: 1px solid var(--borda); }
+.arquivo-local h2, .arquivo-local p { margin: 3px 0; }
+
+.banner-anfitriao { min-height: 390px; padding: 70px max(8%, calc((100% - 1080px)/2)); display: flex; align-items: center; background: linear-gradient(100deg, var(--verde-escuro), var(--verde)); color: white; }
+.banner-anfitriao div { max-width: 700px; }
+.conteudo-anfitriao { padding: 65px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 65px; }
+.conteudo-anfitriao li { margin: 12px 0; }
+.form-simples { margin-top: 0; }
+.form-simples h2 { margin-bottom: 3px; }
+.form-simples > p { color: var(--cinza); }
+.mensagem-anfitriao { color: var(--verde); font-weight: bold; }
+
+footer { margin-top: 60px; padding: 28px 6%; display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--borda); color: var(--cinza); font-size: 13px; }
+
+@media (max-width: 760px) {
+  header { align-items: flex-start; flex-direction: column; gap: 8px; }
+  nav { width: 100%; gap: 16px; overflow-x: auto; white-space: nowrap; }
+  .banner { min-height: 650px; padding: 45px 28px; align-items: flex-start; }
+  .texto-banner { width: 100%; }
+  .texto-banner h1 { font-size: 42px; }
+  .desenho-casa { width: 330px; position: absolute; right: -50px; bottom: 0; }
+  .passos, .indicadores, .lista-reservas, .conteudo-anfitriao { grid-template-columns: 1fr; }
+  .linha-form { display: block; }
+  .chamada-anfitriao, .topo-reservas, .ferramentas, .arquivo-local { align-items: flex-start; flex-direction: column; }
+  .campo-busca, .campo-busca input { width: 100%; }
+  .cabecalho-pagina h1 { font-size: 37px; }
+  footer { flex-direction: column; }
+}
