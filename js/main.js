@@ -1,3 +1,4 @@
+import { lerParametro } from "./endereco.js";
 import { pegarReservas, salvarReservas } from "./dados.js";
 import { calcularNoites, validar } from "./validacao.js";
 
@@ -28,14 +29,18 @@ if (formulario !== null) {
     evento.preventDefault();
     let dados = lerCampos();
     let erros = validar(dados);
-    mostrarErros(erros);
+    let temErro = mostrarErros(erros);
 
-    if (Object.keys(erros).length > 0) {
+    if (temErro) {
       mostrarMensagem("Existem campos que precisam ser corrigidos.", false);
     } else {
-      let posicao = reservas.findIndex(function(item) {
-        return item.id === dados.id;
-      });
+      let posicao = -1;
+      for (let i = 0; i < reservas.length; i++) {
+        if (reservas[i].id === dados.id) {
+          posicao = i;
+          break;
+        }
+      }
 
       if (posicao >= 0) {
         reservas[posicao] = dados;
@@ -85,6 +90,7 @@ function lerCampos() {
 }
 
 function mostrarErros(erros) {
+  let temErro = false;
   let campos = ["nome", "hospedes", "acomodacao", "destino", "checkin", "checkout", "diaria"];
 
   for (let campo of campos) {
@@ -92,6 +98,7 @@ function mostrarErros(erros) {
     let entrada = document.querySelector("#" + campo);
 
     if (erros[campo]) {
+      temErro = true;
       textoErro.textContent = erros[campo];
       entrada.classList.add("invalido");
     } else {
@@ -99,6 +106,7 @@ function mostrarErros(erros) {
       entrada.classList.remove("invalido");
     }
   }
+  return temErro;
 }
 
 function mostrarMensagem(texto, sucesso) {
@@ -127,15 +135,22 @@ function atualizarPrevisao() {
 }
 
 function prepararFormulario() {
-  let parametros = new URLSearchParams(window.location.search);
-  let id = Number(parametros.get("editar"));
+  let id = Number(lerParametro("editar"));
+
+  if (!id) {
+    document.querySelector("#destino").value = lerParametro("destino").slice(0, 70);
+  }
 
   if (id > 0) {
-    let reserva = reservas.find(function(item) {
-      return item.id === id;
-    });
+    let reserva = null;
+    for (let i = 0; i < reservas.length; i++) {
+      if (reservas[i].id === id) {
+        reserva = reservas[i];
+        break;
+      }
+    }
 
-    if (reserva !== undefined) {
+    if (reserva !== null) {
       document.querySelector("#titulo-formulario").textContent = "Editar reserva";
       document.querySelector("#salvar").textContent = "Atualizar reserva";
       document.querySelector("#id-reserva").value = reserva.id;
@@ -153,8 +168,9 @@ function prepararFormulario() {
   }
 }
 
+let filtroAtual = "todas";
+
 if (lista !== null) {
-  let filtroAtual = "todas";
   mostrarReservas(filtroAtual);
 
   document.querySelector("#busca").addEventListener("input", function() {
@@ -269,11 +285,14 @@ function atualizarResumo() {
 
 function excluirReserva(id) {
   if (confirm("Tem certeza que deseja excluir esta reserva?")) {
-    reservas = reservas.filter(function(item) {
-      return item.id !== id;
-    });
+    for (let i = 0; i < reservas.length; i++) {
+      if (reservas[i].id === id) {
+        reservas.splice(i, 1);
+        break;
+      }
+    }
     salvarReservas(reservas);
-    mostrarReservas("todas");
+    mostrarReservas(filtroAtual);
     console.log("Reserva excluída. Restaram", reservas.length, "registros.");
   }
 }

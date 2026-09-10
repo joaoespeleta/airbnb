@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Airbn - Nova reserva</title><link rel="stylesheet" href="css/style.css"></head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Hospedá - Nova reserva</title><link rel="stylesheet" href="css/style.css"></head>
 <body>
-  <header><a class="logo" href="index.html"><span>⌂</span> airbn</a><nav><a href="index.html">Início</a><a class="selecionado" href="reserva.html">Reservar</a><a href="reservas.html">Minhas reservas</a><a href="anfitriao.html">Anfitrião</a></nav></header>
+  <header><a class="logo" href="index.html"><img src="img/logo-hospeda.png" alt="Hospedá - início"></a><nav>
+        <a href="index.html">Início</a>
+        <a href="destinos.html">Destinos</a>
+        <a href="reserva.html" class="selecionado" aria-current="page">Reservar</a>
+        <a href="reservas.html">Minhas reservas</a>
+        <a href="anfitriao.html">Anfitrião</a>
+      </nav></header>
   <main class="conteudo pagina-interna">
     <div class="cabecalho-pagina"><p class="destaque verde">ORGANIZE SUA ESTADIA</p><h1 id="titulo-formulario">Nova reserva</h1><p>Os campos com asterisco são obrigatórios.</p></div>
     <form id="form-reserva" novalidate>
@@ -15,5 +21,6 @@
       <div class="botoes-form"><a class="botao botao-cinza" href="reservas.html">Voltar</a><button class="botao botao-verde" type="submit" id="salvar">Salvar reserva</button></div>
     </form>
   </main>
-  <footer><p><strong>airbn</strong> · Projeto acadêmico de Desenvolvimento Web II</p><p>Mackenzie · 2026</p></footer><script type="module" src="js/main.js"></script>
+  <footer><p><strong>Hospedá</strong> · Projeto acadêmico de Desenvolvimento Web II</p><p>Mackenzie · 2026</p></footer><script type="module" src="js/main.js"></script>
+<script type="module" src="js/conta.js"></script>
 </body></html>

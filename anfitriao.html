@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Airbn - Área do anfitrião</title><link rel="stylesheet" href="css/style.css"></head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Hospedá - Área do anfitrião</title><link rel="stylesheet" href="css/style.css"></head>
 <body>
-  <header><a class="logo" href="index.html"><span>⌂</span> airbn</a><nav><a href="index.html">Início</a><a href="reserva.html">Reservar</a><a href="reservas.html">Minhas reservas</a><a class="selecionado" href="anfitriao.html">Anfitrião</a></nav></header>
+  <header><a class="logo" href="index.html"><img src="img/logo-hospeda.png" alt="Hospedá - início"></a><nav>
+        <a href="index.html">Início</a>
+        <a href="destinos.html">Destinos</a>
+        <a href="reserva.html">Reservar</a>
+        <a href="reservas.html">Minhas reservas</a>
+        <a href="anfitriao.html" class="selecionado" aria-current="page">Anfitrião</a>
+      </nav></header>
   <main>
-    <section class="banner-anfitriao"><div><p class="destaque">ÁREA DO ANFITRIÃO</p><h1>Seu espaço pode fazer parte de uma boa viagem.</h1><p>Na versão futura do Airbn, anfitriões poderão anunciar casas e apartamentos.</p></div></section>
+    <section class="banner-anfitriao"><div><p class="destaque">ÁREA DO ANFITRIÃO</p><h1>Seu espaço pode fazer parte de uma boa viagem.</h1><p>Na versão futura da Hospedá, anfitriões poderão anunciar casas e apartamentos.</p></div></section>
     <section class="conteudo conteudo-anfitriao">
       <div><p class="destaque verde">PRIMEIROS PASSOS</p><h2>O que um anfitrião poderá fazer?</h2><ul><li>Cadastrar uma casa ou apartamento;</li><li>Informar endereço, diária e quantidade de hóspedes;</li><li>Acompanhar solicitações de reserva;</li><li>Alterar a disponibilidade do imóvel.</li></ul></div>
       <form id="form-anfitriao" class="form-simples"><h2>Quero me tornar anfitrião</h2><p>Este cadastro é apenas uma simulação da Parte 1.</p><div class="campo"><label for="nome-anfitriao">Seu nome *</label><input type="text" id="nome-anfitriao" minlength="3" required></div><div class="campo"><label for="tipo-imovel">Que imóvel você possui? *</label><select id="tipo-imovel" required><option value="">Selecione</option><option>Casa</option><option>Apartamento</option></select></div><button class="botao botao-verde" type="submit">Enviar interesse</button><p id="mensagem-anfitriao" class="mensagem-anfitriao"></p></form>
     </section>
   </main>
-  <footer><p><strong>airbn</strong> · Projeto acadêmico de Desenvolvimento Web II</p><p>Mackenzie · 2026</p></footer><script type="module" src="js/main.js"></script>
+  <footer><p><strong>Hospedá</strong> · Projeto acadêmico de Desenvolvimento Web II</p><p>Mackenzie · 2026</p></footer><script type="module" src="js/main.js"></script>
+<script type="module" src="js/conta.js"></script>
 </body></html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospedá - Entrar</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <a class="logo" href="index.html"><img src="img/logo-hospeda.png" alt="Hospedá - início"></a>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="destinos.html">Destinos</a>
+        <a href="reserva.html">Reservar</a>
+        <a href="reservas.html">Minhas reservas</a>
+        <a href="anfitriao.html">Anfitrião</a>
+      </nav>
+  </header>
+  <main class="conteudo pagina-conta">
+    <div class="cabecalho-pagina"><h1>Entre na sua conta</h1><p>Bom ter você por aqui de novo.</p></div>
+    <form id="form-login" class="form-simples">
+      <p class="aviso-conta">Acesso demonstrativo: use o e-mail cadastrado neste navegador. Esta versão não utiliza senha nem autenticação real.</p>
+      <div class="campo"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" maxlength="120" required></div>
+      <p id="mensagem-conta" role="status" aria-live="polite"></p>
+      <button class="botao botao-verde" type="submit">Entrar na demonstração</button>
+      <p>Ainda não tem conta? <a class="link-conta" href="cadastro.html">Cadastre-se</a></p>
+    </form>
+  </main>
+  <footer><p><strong>Hospedá</strong> · Projeto acadêmico de Desenvolvimento Web II</p><p>Mackenzie · 2026</p></footer>
+  <script type="module" src="js/conta.js"></script>
+</body>
+</html>
