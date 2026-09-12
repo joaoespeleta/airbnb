@@ -1,6 +1,6 @@
-function lerDados(armazenamento, chave, padrao) {
+function lerDados(chave, padrao) {
   try {
-    let dados = JSON.parse(armazenamento.getItem(chave));
+    let dados = JSON.parse(localStorage.getItem(chave));
     if (dados === null) {
       return padrao;
     }
@@ -11,108 +11,102 @@ function lerDados(armazenamento, chave, padrao) {
 }
 
 const navegacao = document.querySelector("header nav");
-const sessao = lerDados(sessionStorage, "sessao_airbn", null);
+
 if (navegacao) {
-  if (sessao && typeof sessao.nome === "string") {
-    const nome = document.createElement("span");
-    nome.className = "nome-conta";
-    nome.textContent = "Olá, " + sessao.nome;
-    const sair = document.createElement("button");
-    sair.type = "button";
-    sair.className = "sair-conta";
-    sair.textContent = "Sair";
-    sair.addEventListener("click", function() {
-      sessionStorage.removeItem("sessao_airbn");
-      window.location.href = "index.html";
-    });
-    navegacao.append(nome, sair);
-  } else {
-    let paginas = ["login.html", "cadastro.html"];
-    let textos = ["Entrar", "Cadastre-se"];
-    for (let i = 0; i < paginas.length; i++) {
-      let pagina = paginas[i];
-      let texto = textos[i];
-      const link = document.createElement("a");
-      link.href = pagina;
-      link.textContent = texto;
-      if (window.location.pathname.endsWith("/" + pagina)) {
-        link.className = "selecionado";
-        link.setAttribute("aria-current", "page");
-      }
-      navegacao.appendChild(link);
+  let paginas = ["login.html", "cadastro.html"];
+  let textos = ["Entrar", "Cadastre-se"];
+
+  for (let i = 0; i < paginas.length; i++) {
+    let link = document.createElement("a");
+    link.href = paginas[i];
+    link.textContent = textos[i];
+
+    if (window.location.pathname.endsWith("/" + paginas[i])) {
+      link.className = "selecionado";
+      link.setAttribute("aria-current", "page");
     }
+
+    navegacao.appendChild(link);
   }
 }
 
 const cadastro = document.querySelector("#form-cadastro");
 const login = document.querySelector("#form-login");
 let formulario = cadastro;
+
 if (formulario === null) {
   formulario = login;
 }
+
 if (formulario) {
   formulario.addEventListener("submit", function(evento) {
     evento.preventDefault();
+
     const mensagem = document.querySelector("#mensagem-conta");
     const email = document.querySelector("#email").value.trim().toLowerCase();
-    const dados = lerDados(localStorage, "contas_airbn", []);
+    const senha = document.querySelector("#senha").value.trim();
+    const dados = lerDados("contas_airbn", []);
+
     let contas = [];
     if (Array.isArray(dados)) {
       contas = dados;
     }
+
     let conta = null;
     for (let i = 0; i < contas.length; i++) {
-      if (contas[i] && contas[i].email === email) {
+      if (contas[i].email === email) {
         conta = contas[i];
-        break;
       }
     }
+
     mensagem.textContent = "";
+
     if (cadastro) {
-      const nome = document.querySelector("#nome-conta").value.trim();
-      const senha = document.querySelector("#senha").value.trim();
-      const tipoEscolhido = document.querySelector('input[name="tipo-conta"]:checked');
+      let nome = document.querySelector("#nome-conta").value.trim();
+      let tipoEscolhido = document.querySelector('input[name="tipo-conta"]:checked');
 
       if (nome.length < 3) {
         mensagem.textContent = "Digite um nome com pelo menos 3 caracteres.";
         return;
       }
+
       if (tipoEscolhido === null) {
-        mensagem.textContent = "Escolha se a conta é de anfitrião ou hóspede.";
+        mensagem.textContent = "Escolha se a conta e de anfitriao ou hospede.";
         return;
       }
+
       if (senha.length < 4) {
         mensagem.textContent = "Digite uma senha com pelo menos 4 caracteres.";
         return;
       }
-      if (conta) {
-        mensagem.textContent = "Este e-mail já está cadastrado. Use o link Entrar abaixo.";
+
+      if (conta !== null) {
+        mensagem.textContent = "Este e-mail ja esta cadastrado.";
         return;
       }
+
       conta = {
         nome: nome,
         email: email,
         senha: senha,
         tipo: tipoEscolhido.value
       };
+
       contas.push(conta);
+      localStorage.setItem("contas_airbn", JSON.stringify(contas));
+      window.location.href = "login.html";
     } else {
-      const senha = document.querySelector("#senha").value.trim();
-      if (!conta) {
-        mensagem.textContent = "Não encontramos esse e-mail. Faça seu cadastro primeiro.";
+      if (conta === null) {
+        mensagem.textContent = "E-mail nao encontrado.";
         return;
       }
+
       if (senha !== conta.senha) {
         mensagem.textContent = "Senha incorreta.";
         return;
       }
-    }
-    try {
-      if (cadastro) localStorage.setItem("contas_airbn", JSON.stringify(contas));
-      sessionStorage.setItem("sessao_airbn", JSON.stringify(conta));
+
       window.location.href = "index.html";
-    } catch {
-      mensagem.textContent = "Não foi possível salvar o acesso. Verifique se o armazenamento do navegador está habilitado.";
     }
   });
 }
