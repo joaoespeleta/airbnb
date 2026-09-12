@@ -1,0 +1,46 @@
+.buscar-imovel {
+  margin-top: 30px;
+  padding: 25px;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  background: white;
+}
+
+.buscar-imovel h2 {
+  margin-top: 0;
+}
+
+.buscar-imovel .lista-imoveis,
+.buscar-imovel .sem-reservas {
+  margin-top: 18px;
+}
+
+#form-reserva h2 {
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--borda);
+  font-size: 20px;
+}
+
+.total-form {
+  margin-top: 5px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 7px;
+  background: var(--bege);
+}
+
+.botoes-form {
+  margin-top: 22px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+@media (max-width: 760px) {
+  .total-form {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}

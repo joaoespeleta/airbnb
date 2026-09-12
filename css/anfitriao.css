@@ -1,0 +1,52 @@
+.banner-anfitriao {
+  min-height: 390px;
+  padding: 70px max(8%, calc((100% - 1080px) / 2));
+  display: flex;
+  align-items: center;
+  background: linear-gradient(100deg, var(--turquesa-escuro), var(--turquesa));
+  color: white;
+}
+
+.banner-anfitriao div {
+  max-width: 700px;
+}
+
+.banner-anfitriao h1 {
+  margin: 10px 0 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(38px, 4.5vw, 62px);
+  line-height: 1.05;
+}
+
+.conteudo-anfitriao {
+  padding: 65px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 65px;
+}
+
+.conteudo-anfitriao h2 {
+  margin: 7px 0 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 34px;
+}
+
+.mensagem-anfitriao {
+  color: var(--turquesa);
+  font-weight: bold;
+}
+
+.cabecalho-lista-imoveis h2 {
+  margin: 0;
+}
+
+.cabecalho-lista-imoveis p {
+  margin-top: 4px;
+  color: var(--cinza);
+}
+
+@media (max-width: 760px) {
+  .conteudo-anfitriao {
+    grid-template-columns: 1fr;
+  }
+}

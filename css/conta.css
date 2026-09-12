@@ -1,0 +1,46 @@
+.pagina-conta {
+  max-width: 540px;
+  min-height: 65vh;
+  padding: 60px 0;
+}
+
+.pagina-conta .form-simples {
+  margin-top: 24px;
+}
+
+.pagina-conta .botao {
+  width: 100%;
+}
+
+.aviso-conta {
+  padding: 12px;
+  background: var(--bege);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.link-conta {
+  color: var(--turquesa);
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+#mensagem-conta {
+  color: var(--vermelho);
+}
+
+.tipo-conta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.tipo-conta p,
+.tipo-conta label {
+  margin: 0;
+}
+
+.tipo-conta input {
+  width: auto;
+  margin-right: 6px;
+}

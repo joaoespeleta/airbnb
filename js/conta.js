@@ -10,26 +10,6 @@ function lerDados(chave, padrao) {
   }
 }
 
-const navegacao = document.querySelector("header nav");
-
-if (navegacao) {
-  let paginas = ["login.html", "cadastro.html"];
-  let textos = ["Entrar", "Cadastre-se"];
-
-  for (let i = 0; i < paginas.length; i++) {
-    let link = document.createElement("a");
-    link.href = paginas[i];
-    link.textContent = textos[i];
-
-    if (window.location.pathname.endsWith("/" + paginas[i])) {
-      link.className = "selecionado";
-      link.setAttribute("aria-current", "page");
-    }
-
-    navegacao.appendChild(link);
-  }
-}
-
 const cadastro = document.querySelector("#form-cadastro");
 const login = document.querySelector("#form-login");
 let formulario = cadastro;

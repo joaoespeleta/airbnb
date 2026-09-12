@@ -6,8 +6,7 @@ const destinos = [
   { cidade: "São Paulo", estado: "São Paulo", sigla: "SP", descricao: "Apartamentos para ficar perto dos passeios da capital." },
   { cidade: "Rio de Janeiro", estado: "Rio de Janeiro", sigla: "RJ", descricao: "Opções para conhecer a cidade e aproveitar a praia." },
   { cidade: "Florianópolis", estado: "Santa Catarina", sigla: "SC", descricao: "Casas e apartamentos para uma temporada na ilha." },
-  { cidade: "Gramado", estado: "Rio Grande do Sul", sigla: "RS", descricao: "Um destino para passear pela serra gaúcha." },
-  { cidade: "Barueri", estado: "São Paulo", sigla: "SP", descricao: "Destino para aproveitar a chuva." }
+  { cidade: "Gramado", estado: "Rio Grande do Sul", sigla: "RS", descricao: "Um destino para passear pela serra gaúcha." }
 
 ];
 
@@ -64,7 +63,7 @@ for (let destino of encontrados) {
   descricao.textContent = destino.descricao;
   let link = document.createElement("a");
   link.className = "botao botao-verde";
-  link.textContent = "Reservar neste destino";
+  link.textContent = "Buscar neste destino";
   link.href = "reserva.html?destino=" + encodeURIComponent(titulo.textContent);
   cartao.append(titulo, descricao, link);
   document.querySelector("#lista-destinos").appendChild(cartao);

@@ -1,84 +1,4 @@
-/*comentário style*/
-.busca-destino label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-.busca-destino > div {
-  display: flex;
-  gap: 10px;
-}
-.busca-destino input {
-  flex: 1;
-  min-width: 0;
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #cdd5d1;
-  border-radius: 7px;
-}
-.busca-destino input:focus {
-  outline: 3px solid #edbd6b;
-}
-.ver-destinos {
-  display: inline-block;
-  margin-top: 16px;
-  text-decoration: underline;
-}
-.busca-na-lista {
-  max-width: 650px;
-  margin: 28px 0;
-}
-@media (max-width: 400px) {
-  .busca-destino > div {
-    flex-direction: column;
-  }
-}
-
-.pagina-conta {
-  max-width: 540px;
-  min-height: 65vh;
-  padding: 60px 0;
-}
-.pagina-conta .form-simples {
-  margin-top: 24px;
-}
-.pagina-conta .botao {
-  width: 100%;
-}
-.aviso-conta {
-  padding: 12px;
-  background: var(--bege);
-  border-radius: 6px;
-  font-size: 14px;
-}
-.link-conta {
-  color: var(--turquesa);
-  text-decoration: underline;
-  font-weight: bold;
-}
-#mensagem-conta {
-  color: var(--vermelho);
-}
-.tipo-conta input {
-  width: auto;
-  margin-right: 6px;
-}
-.tipo-conta {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-.tipo-conta p {
-  margin: 0;
-}
-.tipo-conta label {
-  margin: 0;
-}
-header {
-  flex-wrap: wrap;
-}
-
-/* Cores principais do projeto */
+/* CSS principal */
 :root {
   --turquesa: #087887;
   --azul: #0796a6;
@@ -96,9 +16,11 @@ header {
 * {
   box-sizing: border-box;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 body {
   margin: 0;
   background: #f8f6ef;
@@ -106,16 +28,19 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
 }
+
 a {
   color: inherit;
   text-decoration: none;
 }
+
 button,
 input,
 select,
 textarea {
   font: inherit;
 }
+
 button {
   cursor: pointer;
 }
@@ -127,75 +52,72 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 30px;
+  flex-wrap: wrap;
   background: white;
   border-bottom: 1px solid var(--borda);
 }
+
 .logo {
   display: block;
   flex-shrink: 0;
 }
+
 .logo img {
   display: block;
   width: 145px;
   height: 76px;
   object-fit: contain;
 }
+
 nav {
   display: flex;
   gap: 25px;
   font-size: 14px;
   font-weight: bold;
 }
+
 nav a {
   padding: 8px 0;
   border-bottom: 2px solid transparent;
 }
+
 nav a:hover,
 nav .selecionado {
   color: var(--turquesa);
   border-color: var(--turquesa);
 }
 
-.banner {
-  width: calc(100% - 50px);
-  min-height: 540px;
-  margin: 24px auto;
-  padding: 65px 7%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
-  position: relative;
-  border-radius: 20px;
-  background: var(--bege);
-  color: var(--texto);
+.conteudo {
+  width: min(1080px, calc(100% - 36px));
+  margin: auto;
 }
-.texto-banner {
-  width: 55%;
-  position: relative;
-  z-index: 2;
+
+.pagina-interna {
+  min-height: 700px;
+  padding: 65px 0;
 }
-.texto-banner h1,
-.banner-anfitriao h1 {
-  margin: 10px 0 18px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(38px, 4.5vw, 62px);
-  line-height: 1.05;
+
+.cabecalho-pagina h1 {
+  margin: 5px 0;
+  font: bold 45px Arial, sans-serif;
 }
-.texto-banner > p:not(.destaque) {
-  max-width: 570px;
-  margin-bottom: 28px;
-  font-size: 18px;
+
+.cabecalho-pagina > p:last-child {
+  margin-top: 5px;
+  color: var(--cinza);
 }
+
 .destaque {
   margin: 0;
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 2px;
 }
+
 .verde {
   color: var(--turquesa);
 }
+
 .botao {
   display: inline-block;
   padding: 12px 19px;
@@ -203,140 +125,55 @@ nav .selecionado {
   border-radius: 7px;
   font-weight: bold;
 }
+
 .botao:hover {
   opacity: 0.88;
 }
+
 .botao-claro {
   background: white;
   color: var(--turquesa-escuro);
 }
+
 .botao-verde {
   background: var(--turquesa);
   color: white;
 }
+
 .botao-cinza {
   background: #e9edeb;
   color: var(--texto);
 }
+
 .botao-perigo {
   background: var(--vermelho);
   color: white;
 }
 
-.marca-banner {
-  width: 38%;
-  padding: 32px 20px;
-  border-radius: 20px;
-  background: #f8f6ef;
-  text-align: center;
-  border-bottom: 5px solid var(--azul);
-}
-.marca-banner img {
-  width: 100%;
-  height: auto;
+.busca-destino label {
   display: block;
-}
-.marca-banner p {
-  margin: 20px 0 0;
-  color: var(--turquesa-escuro);
-  font-size: 15px;
-}
-.banner .destaque {
-  color: var(--turquesa-escuro);
-}
-.banner .botao-claro {
-  background: var(--turquesa);
-  color: white;
+  margin-bottom: 8px;
+  font-weight: bold;
 }
 
-.conteudo {
-  width: min(1080px, calc(100% - 36px));
-  margin: auto;
-}
-.home-info {
-  padding: 75px 0;
-}
-.home-info h2,
-.chamada-anfitriao h2,
-.conteudo-anfitriao h2 {
-  margin: 7px 0 25px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 34px;
-}
-.passos {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-.passos article {
-  padding: 24px;
-  border: 1px solid var(--borda);
-  border-radius: 10px;
-  background: white;
-}
-.passos b {
-  width: 34px;
-  height: 34px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--bege);
-  color: var(--turquesa-escuro);
-}
-.passos h3 {
-  margin-bottom: 5px;
-}
-.passos p {
-  margin: 0;
-  color: var(--cinza);
-}
-.chamada-anfitriao {
-  width: min(1080px, calc(100% - 36px));
-  margin: 20px auto 80px;
-  padding: 38px;
+.busca-destino > div {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
-  border-radius: 12px;
-  background: var(--verde-tropical);
-  color: white;
-}
-.chamada-anfitriao h2 {
-  margin-bottom: 5px;
-}
-.chamada-anfitriao p {
-  margin: 0;
+  gap: 10px;
 }
 
-.pagina-interna {
-  min-height: 700px;
-  padding: 65px 0;
+.busca-destino input {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cdd5d1;
+  border-radius: 7px;
 }
-.cabecalho-pagina h1 {
-  margin: 5px 0;
-  font: bold 45px Arial, sans-serif;
+
+.busca-destino input:focus {
+  outline: 3px solid #edbd6b;
 }
-.cabecalho-pagina > p:last-child {
-  margin-top: 5px;
-  color: var(--cinza);
-}
-.buscar-imovel {
-  margin-top: 30px;
-  padding: 25px;
-  border: 1px solid var(--borda);
-  border-radius: 10px;
-  background: white;
-}
-.buscar-imovel h2 {
-  margin-top: 0;
-}
-.buscar-imovel .lista-imoveis {
-  margin-top: 18px;
-}
-.buscar-imovel .sem-reservas {
-  margin-top: 18px;
-}
+
 #form-reserva,
 .form-simples {
   margin-top: 30px;
@@ -346,29 +183,36 @@ nav .selecionado {
   background: white;
   box-shadow: 0 8px 25px rgba(40, 70, 60, 0.08);
 }
-#form-reserva h2 {
-  margin-top: 0;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--borda);
-  font-size: 20px;
+
+.form-simples h2 {
+  margin-bottom: 3px;
 }
+
+.form-simples > p {
+  color: var(--cinza);
+}
+
 .linha-form {
   display: flex;
   gap: 18px;
 }
+
 .campo {
   flex: 1;
   margin-bottom: 18px;
 }
+
 .campo.grande {
   flex: 2;
 }
+
 .campo label {
   display: block;
   margin-bottom: 5px;
   font-size: 14px;
   font-weight: bold;
 }
+
 .campo input,
 .campo select,
 .campo textarea {
@@ -378,126 +222,59 @@ nav .selecionado {
   border-radius: 6px;
   background: #fff;
 }
+
 .campo input:focus,
 .campo select:focus,
 .campo textarea:focus {
   outline: 2px solid #bad0c8;
   border-color: var(--turquesa);
 }
+
 .campo small {
   color: var(--cinza);
 }
-.campo .erro {
+
+.campo .erro,
+.erro {
   min-height: 19px;
   display: block;
   color: var(--vermelho);
   font-size: 12px;
 }
+
 .campo .invalido {
   border-color: var(--vermelho);
 }
-.total-form {
-  margin-top: 5px;
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  border-radius: 7px;
-  background: var(--bege);
-}
-.botoes-form {
-  margin-top: 22px;
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-}
+
 .mensagem {
   display: none;
   margin-bottom: 18px;
   padding: 12px;
   border-radius: 5px;
 }
+
 .mensagem.sucesso {
   display: block;
   background: #dff1e6;
   color: #23613e;
 }
+
 .mensagem.falha {
   display: block;
   background: #f7dfdf;
   color: #963b3b;
 }
 
-.topo-reservas {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 20px;
-}
-.indicadores {
-  margin: 30px 0;
+.lista-reservas,
+.lista-imoveis {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-}
-.indicadores article {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--borda);
-  border-radius: 8px;
-  background: white;
-}
-.indicadores span {
-  color: var(--cinza);
-  font-size: 13px;
-}
-.indicadores strong {
-  margin-top: 4px;
-  color: var(--turquesa);
-  font: bold 28px Arial, sans-serif;
-}
-.ferramentas {
-  margin-bottom: 20px;
-  padding: 15px;
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 20px;
-  background: var(--bege);
-  border-radius: 8px;
-}
-.campo-busca label {
-  display: block;
-  margin-bottom: 4px;
-  font-size: 13px;
-  font-weight: bold;
-}
-.campo-busca input {
-  width: 310px;
-  padding: 9px;
-  border: 1px solid var(--borda);
-  border-radius: 5px;
-}
-.filtros {
-  display: flex;
-  gap: 6px;
-}
-.filtro {
-  padding: 8px 12px;
-  border: 1px solid var(--borda);
-  border-radius: 20px;
-  background: white;
-}
-.filtro.ativo,
-.filtro:hover {
-  background: var(--turquesa);
-  color: white;
-}
-.lista-reservas {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
+
+.lista-reservas {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .cartao-reserva {
   padding: 20px;
   border: 1px solid var(--borda);
@@ -505,14 +282,17 @@ nav .selecionado {
   border-radius: 8px;
   background: white;
 }
+
 .cartao-reserva h2 {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 .cartao-reserva .subtitulo {
   margin: 2px 0 18px;
   color: var(--cinza);
 }
+
 .dados-cartao {
   padding: 14px 0;
   display: grid;
@@ -521,11 +301,13 @@ nav .selecionado {
   border-top: 1px solid var(--borda);
   border-bottom: 1px solid var(--borda);
 }
+
 .dados-cartao span {
   display: block;
   color: var(--cinza);
   font-size: 12px;
 }
+
 .rodape-cartao {
   margin-top: 16px;
   display: flex;
@@ -533,106 +315,42 @@ nav .selecionado {
   justify-content: space-between;
   gap: 10px;
 }
+
 .rodape-cartao strong {
   color: var(--turquesa);
   font-size: 18px;
 }
+
 .rodape-cartao button {
   padding: 7px 9px;
   border: 1px solid var(--borda);
   border-radius: 5px;
   background: #f7f7f7;
 }
+
 .rodape-cartao button:hover {
   background: var(--bege);
 }
-.status {
-  float: right;
-  padding: 4px 8px;
-  border-radius: 15px;
-  background: #e1eee9;
-  color: var(--turquesa);
-  font-size: 11px;
-  font-weight: bold;
-}
-.status.finalizada {
-  background: #eeeae3;
-  color: var(--cinza);
-}
+
 .sem-reservas {
   padding: 50px;
   text-align: center;
   border: 1px dashed var(--borda);
   border-radius: 8px;
 }
+
 .sem-reservas span {
   font-size: 35px;
   color: var(--areia);
 }
+
 .sem-reservas h2 {
   margin-bottom: 3px;
 }
+
 .sem-reservas p {
   margin-top: 0;
   color: var(--cinza);
-}
-.arquivo-local {
-  margin-top: 35px;
-  padding-top: 22px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  border-top: 1px solid var(--borda);
-}
-.arquivo-local h2,
-.arquivo-local p {
-  margin: 3px 0;
-}
-
-.banner-anfitriao {
-  min-height: 390px;
-  padding: 70px max(8%, calc((100% - 1080px) / 2));
-  display: flex;
-  align-items: center;
-  background: linear-gradient(100deg, var(--turquesa-escuro), var(--turquesa));
-  color: white;
-}
-.banner-anfitriao div {
-  max-width: 700px;
-}
-.conteudo-anfitriao {
-  padding: 65px 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 65px;
-}
-.conteudo-anfitriao li {
-  margin: 12px 0;
-}
-.form-simples {
-  margin-top: 0;
-}
-.form-simples h2 {
-  margin-bottom: 3px;
-}
-.form-simples > p {
-  color: var(--cinza);
-}
-.mensagem-anfitriao {
-  color: var(--turquesa);
-  font-weight: bold;
-}
-.cabecalho-lista-imoveis h2 {
-  margin: 0;
-}
-.cabecalho-lista-imoveis p {
-  margin-top: 4px;
-  color: var(--cinza);
-}
-.lista-imoveis {
-  display: grid;
-  gap: 16px;
 }
 
 footer {
@@ -646,77 +364,54 @@ footer {
   font-size: 13px;
 }
 
+footer strong {
+  color: var(--turquesa-escuro);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--azul);
+  outline-offset: 4px;
+}
+
 @media (max-width: 760px) {
   header {
     align-items: flex-start;
     flex-direction: column;
     gap: 8px;
   }
+
   nav {
     width: 100%;
     gap: 16px;
     overflow-x: auto;
     white-space: nowrap;
   }
-  .banner {
-    min-height: 0;
-    padding: 35px 24px;
-    flex-direction: column;
-    gap: 30px;
-  }
-  .texto-banner {
-    width: 100%;
-  }
-  .texto-banner h1 {
-    font-size: 42px;
-  }
-  .marca-banner {
-    width: 100%;
-    max-width: 360px;
-    align-self: center;
-  }
+
   .logo img {
     width: 125px;
     height: 65px;
   }
-  .total-form {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .passos,
-  .indicadores,
-  .lista-reservas,
-  .conteudo-anfitriao {
+
+  .lista-reservas {
     grid-template-columns: 1fr;
   }
+
   .linha-form {
     display: block;
   }
-  .chamada-anfitriao,
-  .topo-reservas,
-  .ferramentas,
-  .arquivo-local {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-  .campo-busca,
-  .campo-busca input {
-    width: 100%;
-  }
+
   .cabecalho-pagina h1 {
     font-size: 37px;
   }
+
   footer {
     flex-direction: column;
   }
 }
 
-/* Destaques da Hospedá */
-a:focus-visible,
-button:focus-visible {
-  outline: 3px solid var(--azul);
-  outline-offset: 4px;
-}
-footer strong {
-  color: var(--turquesa-escuro);
+@media (max-width: 400px) {
+  .busca-destino > div {
+    flex-direction: column;
+  }
 }

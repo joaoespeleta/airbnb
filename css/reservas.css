@@ -1,0 +1,75 @@
+.topo-reservas {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.indicadores {
+  margin: 30px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.indicadores article {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  background: white;
+}
+
+.indicadores span {
+  color: var(--cinza);
+  font-size: 13px;
+}
+
+.indicadores strong {
+  margin-top: 4px;
+  color: var(--turquesa);
+  font: bold 28px Arial, sans-serif;
+}
+
+.status {
+  float: right;
+  padding: 4px 8px;
+  border-radius: 15px;
+  background: #e1eee9;
+  color: var(--turquesa);
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.status.finalizada {
+  background: #eeeae3;
+  color: var(--cinza);
+}
+
+.arquivo-local {
+  margin-top: 35px;
+  padding-top: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid var(--borda);
+}
+
+.arquivo-local h2,
+.arquivo-local p {
+  margin: 3px 0;
+}
+
+@media (max-width: 760px) {
+  .indicadores {
+    grid-template-columns: 1fr;
+  }
+
+  .topo-reservas,
+  .arquivo-local {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

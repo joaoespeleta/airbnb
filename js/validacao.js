@@ -15,7 +15,7 @@ export function validar(dados) {
   let erros = {};
   let noites = calcularNoites(dados.checkin, dados.checkout);
 
-  if (dados.idImovel <= 0) {
+  if (!dados.idImovel || dados.idImovel <= 0) {
     erros.imovel = "Escolha um imóvel antes de salvar a reserva.";
   }
 
