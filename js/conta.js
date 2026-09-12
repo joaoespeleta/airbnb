@@ -70,19 +70,42 @@ if (formulario) {
     mensagem.textContent = "";
     if (cadastro) {
       const nome = document.querySelector("#nome-conta").value.trim();
+      const senha = document.querySelector("#senha").value.trim();
+      const tipoEscolhido = document.querySelector('input[name="tipo-conta"]:checked');
+
       if (nome.length < 3) {
         mensagem.textContent = "Digite um nome com pelo menos 3 caracteres.";
+        return;
+      }
+      if (tipoEscolhido === null) {
+        mensagem.textContent = "Escolha se a conta é de anfitrião ou hóspede.";
+        return;
+      }
+      if (senha.length < 4) {
+        mensagem.textContent = "Digite uma senha com pelo menos 4 caracteres.";
         return;
       }
       if (conta) {
         mensagem.textContent = "Este e-mail já está cadastrado. Use o link Entrar abaixo.";
         return;
       }
-      conta = { nome: nome, email: email };
+      conta = {
+        nome: nome,
+        email: email,
+        senha: senha,
+        tipo: tipoEscolhido.value
+      };
       contas.push(conta);
-    } else if (!conta) {
-      mensagem.textContent = "Não encontramos esse e-mail. Faça seu cadastro primeiro.";
-      return;
+    } else {
+      const senha = document.querySelector("#senha").value.trim();
+      if (!conta) {
+        mensagem.textContent = "Não encontramos esse e-mail. Faça seu cadastro primeiro.";
+        return;
+      }
+      if (senha !== conta.senha) {
+        mensagem.textContent = "Senha incorreta.";
+        return;
+      }
     }
     try {
       if (cadastro) localStorage.setItem("contas_airbn", JSON.stringify(contas));

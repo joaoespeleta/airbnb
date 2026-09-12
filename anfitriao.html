@@ -1,21 +1,100 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Hospedá - Área do anfitrião</title><link rel="stylesheet" href="css/style.css"></head>
-<body>
-  <header><a class="logo" href="index.html"><img src="img/logo-hospeda.png" alt="Hospedá - início"></a><nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospedá - Área do anfitrião</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <a class="logo" href="index.html">
+        <img src="img/logo-hospeda.png" alt="Hospedá - início" />
+      </a>
+      <nav>
         <a href="index.html">Início</a>
         <a href="destinos.html">Destinos</a>
         <a href="reserva.html">Reservar</a>
         <a href="reservas.html">Minhas reservas</a>
         <a href="anfitriao.html" class="selecionado" aria-current="page">Anfitrião</a>
-      </nav></header>
-  <main>
-    <section class="banner-anfitriao"><div><p class="destaque">ÁREA DO ANFITRIÃO</p><h1>Seu espaço pode fazer parte de uma boa viagem.</h1><p>Na versão futura da Hospedá, anfitriões poderão anunciar casas e apartamentos.</p></div></section>
-    <section class="conteudo conteudo-anfitriao">
-      <div><p class="destaque verde">PRIMEIROS PASSOS</p><h2>O que um anfitrião poderá fazer?</h2><ul><li>Cadastrar uma casa ou apartamento;</li><li>Informar endereço, diária e quantidade de hóspedes;</li><li>Acompanhar solicitações de reserva;</li><li>Alterar a disponibilidade do imóvel.</li></ul></div>
-      <form id="form-anfitriao" class="form-simples"><h2>Quero me tornar anfitrião</h2><p>Este cadastro é apenas uma simulação da Parte 1.</p><div class="campo"><label for="nome-anfitriao">Seu nome *</label><input type="text" id="nome-anfitriao" minlength="3" required></div><div class="campo"><label for="tipo-imovel">Que imóvel você possui? *</label><select id="tipo-imovel" required><option value="">Selecione</option><option>Casa</option><option>Apartamento</option></select></div><button class="botao botao-verde" type="submit">Enviar interesse</button><p id="mensagem-anfitriao" class="mensagem-anfitriao"></p></form>
-    </section>
-  </main>
-  <footer><p><strong>Hospedá</strong> · Projeto acadêmico de Desenvolvimento Web II</p><p>Mackenzie · 2026</p></footer><script type="module" src="js/main.js"></script>
-<script type="module" src="js/conta.js"></script>
-</body></html>
+      </nav>
+    </header>
+
+    <main>
+      <section class="banner-anfitriao">
+        <div>
+          <p class="destaque">ÁREA DO ANFITRIÃO</p>
+          <h1>Gerencie seus imóveis cadastrados.</h1>
+          <p>Cadastre casas e apartamentos para organizar as informações dos seus anúncios.</p>
+        </div>
+      </section>
+
+      <section class="conteudo conteudo-anfitriao">
+        <form id="form-anfitriao" class="form-simples">
+          <h2 id="titulo-imovel">Cadastrar imóvel</h2>
+          <input type="hidden" id="id-imovel" />
+
+          <div class="campo">
+            <label for="nome-imovel">Nome do imóvel *</label>
+            <input type="text" id="nome-imovel" maxlength="60" required />
+          </div>
+
+          <div class="campo">
+            <label for="cidade-imovel">Cidade *</label>
+            <input type="text" id="cidade-imovel" maxlength="70" required />
+          </div>
+
+          <div class="campo">
+            <label for="tipo-imovel">Tipo *</label>
+            <select id="tipo-imovel" required>
+              <option value="">Selecione</option>
+              <option>Casa</option>
+              <option>Apartamento</option>
+            </select>
+          </div>
+
+          <div class="linha-form">
+            <div class="campo">
+              <label for="diaria-imovel">Diária *</label>
+              <input type="number" id="diaria-imovel" min="50" required />
+            </div>
+
+            <div class="campo">
+              <label for="hospedes-imovel">Hóspedes *</label>
+              <input type="number" id="hospedes-imovel" min="1" max="12" value="1" required />
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="descricao-imovel">Descrição</label>
+            <textarea id="descricao-imovel" rows="4" maxlength="160"></textarea>
+          </div>
+
+          <p id="mensagem-anfitriao" class="mensagem-anfitriao"></p>
+          <button class="botao botao-verde" type="submit" id="salvar-imovel">Salvar imóvel</button>
+        </form>
+
+        <section>
+          <div class="cabecalho-lista-imoveis">
+            <h2>Meus imóveis</h2>
+            <p id="total-imoveis">0 imóveis cadastrados</p>
+          </div>
+
+          <div id="lista-imoveis" class="lista-imoveis"></div>
+          <div id="sem-imoveis" class="sem-reservas">
+            <h2>Nenhum imóvel cadastrado</h2>
+            <p>Use o formulário para cadastrar seu primeiro imóvel.</p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer>
+      <p><strong>Hospedá</strong> · Projeto acadêmico de Desenvolvimento Web II</p>
+      <p>Mackenzie · 2026</p>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/conta.js"></script>
+  </body>
+</html>

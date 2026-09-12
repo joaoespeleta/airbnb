@@ -15,12 +15,20 @@ export function validar(dados) {
   let erros = {};
   let noites = calcularNoites(dados.checkin, dados.checkout);
 
+  if (dados.idImovel <= 0) {
+    erros.imovel = "Escolha um imóvel antes de salvar a reserva.";
+  }
+
   if (dados.nome.length < 3) {
     erros.nome = "Digite pelo menos 3 letras.";
   }
 
   if (dados.hospedes < 1 || dados.hospedes > 12) {
     erros.hospedes = "O número deve ficar entre 1 e 12.";
+  }
+
+  if (dados.maxHospedes > 0 && dados.hospedes > dados.maxHospedes) {
+    erros.hospedes = "Esse imóvel aceita no máximo " + dados.maxHospedes + " hóspedes.";
   }
 
   if (dados.acomodacao === "") {

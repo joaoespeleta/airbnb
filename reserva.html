@@ -1,26 +1,121 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Hospedá - Nova reserva</title><link rel="stylesheet" href="css/style.css"></head>
-<body>
-  <header><a class="logo" href="index.html"><img src="img/logo-hospeda.png" alt="Hospedá - início"></a><nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospedá - Nova reserva</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <a class="logo" href="index.html">
+        <img src="img/logo-hospeda.png" alt="Hospedá - início" />
+      </a>
+      <nav>
         <a href="index.html">Início</a>
         <a href="destinos.html">Destinos</a>
         <a href="reserva.html" class="selecionado" aria-current="page">Reservar</a>
         <a href="reservas.html">Minhas reservas</a>
         <a href="anfitriao.html">Anfitrião</a>
-      </nav></header>
-  <main class="conteudo pagina-interna">
-    <div class="cabecalho-pagina"><p class="destaque verde">ORGANIZE SUA ESTADIA</p><h1 id="titulo-formulario">Nova reserva</h1><p>Os campos com asterisco são obrigatórios.</p></div>
-    <form id="form-reserva" novalidate>
-      <input type="hidden" id="id-reserva"><div id="mensagem" class="mensagem"></div><h2>Dados da viagem</h2>
-      <div class="linha-form"><div class="campo grande"><label for="nome">Nome do hóspede *</label><input type="text" id="nome" placeholder="Ex.: João Pedro" maxlength="60"><small id="erro-nome" class="erro"></small></div><div class="campo"><label for="hospedes">Hóspedes *</label><input type="number" id="hospedes" min="1" max="12" value="1"><small id="erro-hospedes" class="erro"></small></div></div>
-      <div class="linha-form"><div class="campo"><label for="acomodacao">Acomodação *</label><select id="acomodacao"><option value="">Selecione</option><option value="Casa">Casa</option><option value="Apartamento">Apartamento</option></select><small id="erro-acomodacao" class="erro"></small></div><div class="campo grande"><label for="destino">Destino *</label><input type="text" id="destino" placeholder="Ex.: Ubatuba, SP" maxlength="70"><small id="erro-destino" class="erro"></small></div></div>
-      <div class="linha-form"><div class="campo"><label for="checkin">Check-in *</label><input type="date" id="checkin"><small id="erro-checkin" class="erro"></small></div><div class="campo"><label for="checkout">Check-out *</label><input type="date" id="checkout"><small id="erro-checkout" class="erro"></small></div><div class="campo"><label for="diaria">Valor da diária *</label><input type="number" id="diaria" min="50" max="10000" placeholder="350"><small id="erro-diaria" class="erro"></small></div></div>
-      <div class="campo"><label for="observacoes">Observações</label><textarea id="observacoes" rows="4" maxlength="180" placeholder="Ex.: precisamos de uma vaga de garagem"></textarea><small><span id="contador">0</span>/180 caracteres</small></div>
-      <div class="total-form"><span>Valor previsto:</span><strong id="valor-previsto">preencha as datas e a diária</strong></div>
-      <div class="botoes-form"><a class="botao botao-cinza" href="reservas.html">Voltar</a><button class="botao botao-verde" type="submit" id="salvar">Salvar reserva</button></div>
-    </form>
-  </main>
-  <footer><p><strong>Hospedá</strong> · Projeto acadêmico de Desenvolvimento Web II</p><p>Mackenzie · 2026</p></footer><script type="module" src="js/main.js"></script>
-<script type="module" src="js/conta.js"></script>
-</body></html>
+      </nav>
+    </header>
+
+    <main class="conteudo pagina-interna">
+      <div class="cabecalho-pagina">
+        <p class="destaque verde">ORGANIZE SUA ESTADIA</p>
+        <h1 id="titulo-formulario">Nova reserva</h1>
+        <p>Escolha um imóvel e depois informe os dados da estadia.</p>
+      </div>
+
+      <section class="buscar-imovel">
+        <h2>Buscar imóvel</h2>
+        <div class="campo">
+          <label for="busca-imovel">Nome, cidade ou tipo</label>
+          <input type="search" id="busca-imovel" placeholder="Ex.: Ubatuba, casa" />
+        </div>
+        <div id="lista-imoveis-reserva" class="lista-imoveis"></div>
+        <div id="sem-imoveis-reserva" class="sem-reservas">
+          <h2>Nenhum imóvel encontrado</h2>
+          <p>Cadastre um imóvel na área do anfitrião primeiro.</p>
+        </div>
+      </section>
+
+      <form id="form-reserva" novalidate>
+        <input type="hidden" id="id-reserva" />
+        <input type="hidden" id="id-imovel-reserva" />
+        <div id="mensagem" class="mensagem"></div>
+
+        <h2>Dados da reserva</h2>
+        <small id="erro-imovel" class="erro"></small>
+
+        <div class="linha-form">
+          <div class="campo grande">
+            <label for="nome">Nome do hóspede *</label>
+            <input type="text" id="nome" placeholder="Ex.: João Pedro" maxlength="60" />
+            <small id="erro-nome" class="erro"></small>
+          </div>
+          <div class="campo">
+            <label for="hospedes">Hóspedes *</label>
+            <input type="number" id="hospedes" min="1" max="12" value="1" />
+            <small id="erro-hospedes" class="erro"></small>
+          </div>
+        </div>
+
+        <div class="linha-form">
+          <div class="campo">
+            <label for="acomodacao">Acomodação *</label>
+            <input type="text" id="acomodacao" readonly />
+            <small id="erro-acomodacao" class="erro"></small>
+          </div>
+          <div class="campo grande">
+            <label for="destino">Destino *</label>
+            <input type="text" id="destino" readonly />
+            <small id="erro-destino" class="erro"></small>
+          </div>
+        </div>
+
+        <div class="linha-form">
+          <div class="campo">
+            <label for="checkin">Check-in *</label>
+            <input type="date" id="checkin" />
+            <small id="erro-checkin" class="erro"></small>
+          </div>
+          <div class="campo">
+            <label for="checkout">Check-out *</label>
+            <input type="date" id="checkout" />
+            <small id="erro-checkout" class="erro"></small>
+          </div>
+          <div class="campo">
+            <label for="diaria">Valor da diária *</label>
+            <input type="number" id="diaria" readonly />
+            <small id="erro-diaria" class="erro"></small>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="observacoes">Observações</label>
+          <textarea id="observacoes" rows="4" maxlength="180" placeholder="Ex.: precisamos de uma vaga de garagem"></textarea>
+          <small><span id="contador">0</span>/180 caracteres</small>
+        </div>
+
+        <div class="total-form">
+          <span>Valor previsto:</span>
+          <strong id="valor-previsto">escolha um imóvel e preencha as datas</strong>
+        </div>
+
+        <div class="botoes-form">
+          <a class="botao botao-cinza" href="reservas.html">Voltar</a>
+          <button class="botao botao-verde" type="submit" id="salvar">Salvar reserva</button>
+        </div>
+      </form>
+    </main>
+
+    <footer>
+      <p><strong>Hospedá</strong> · Projeto acadêmico de Desenvolvimento Web II</p>
+      <p>Mackenzie · 2026</p>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/conta.js"></script>
+  </body>
+</html>

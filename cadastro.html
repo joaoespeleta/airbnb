@@ -1,34 +1,68 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hospedá - Cadastro</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <header>
-    <a class="logo" href="index.html"><img src="img/logo-hospeda.png" alt="Hospedá - início"></a>
-    <nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospedá - Cadastro</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <a class="logo" href="index.html">
+        <img src="img/logo-hospeda.png" alt="Hospedá - início" />
+      </a>
+      <nav>
         <a href="index.html">Início</a>
         <a href="destinos.html">Destinos</a>
         <a href="reserva.html">Reservar</a>
         <a href="reservas.html">Minhas reservas</a>
         <a href="anfitriao.html">Anfitrião</a>
       </nav>
-  </header>
-  <main class="conteudo pagina-conta">
-    <div class="cabecalho-pagina"><h1>Crie sua conta</h1><p>Como podemos chamar você?</p></div>
-    <form id="form-cadastro" class="form-simples">
-      <p class="aviso-conta">Cadastro demonstrativo, salvo apenas neste navegador. Use dados fictícios. As reservas continuam compartilhadas neste navegador.</p>
-      <div class="campo"><label for="nome-conta">Nome</label><input id="nome-conta" name="nome" type="text" autocomplete="name" minlength="3" maxlength="60" required></div>
-      <div class="campo"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" maxlength="120" required></div>
-      <p id="mensagem-conta" role="status" aria-live="polite"></p>
-      <button class="botao botao-verde" type="submit">Criar conta demonstrativa</button>
-      <p>Já tem conta? <a class="link-conta" href="login.html">Entrar</a></p>
-    </form>
-  </main>
-  <footer><p><strong>Hospedá</strong> · Projeto acadêmico de Desenvolvimento Web II</p><p>Mackenzie · 2026</p></footer>
-  <script type="module" src="js/conta.js"></script>
-</body>
+    </header>
+
+    <main class="conteudo pagina-conta">
+      <div class="cabecalho-pagina">
+        <h1>Crie sua conta</h1>
+        <p>Como podemos chamar você?</p>
+      </div>
+
+      <form id="form-cadastro" class="form-simples">
+        <p class="aviso-conta">
+          Cadastro demonstrativo, salvo apenas neste navegador. Use dados fictícios.
+        </p>
+
+        <div class="campo tipo-conta">
+          <p>Criar conta como:</p>
+          <label><input type="radio" name="tipo-conta" value="anfitriao" required /> Anfitrião</label>
+          <label><input type="radio" name="tipo-conta" value="hospede" required /> Hóspede</label>
+        </div>
+
+        <div class="campo">
+          <label for="nome-conta">Nome</label>
+          <input id="nome-conta" name="nome" type="text" minlength="3" maxlength="60" required />
+        </div>
+
+        <div class="campo">
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" maxlength="120" required />
+        </div>
+
+        <div class="campo">
+          <label for="senha">Senha</label>
+          <input id="senha" name="senha" type="password" minlength="4" maxlength="30" required />
+        </div>
+
+        <p id="mensagem-conta" role="status" aria-live="polite"></p>
+        <button class="botao botao-verde" type="submit">Criar conta demonstrativa</button>
+        <p>Já tem conta? <a class="link-conta" href="login.html">Entrar</a></p>
+      </form>
+    </main>
+
+    <footer>
+      <p><strong>Hospedá</strong> · Projeto acadêmico de Desenvolvimento Web II</p>
+      <p>Mackenzie · 2026</p>
+    </footer>
+
+    <script type="module" src="js/conta.js"></script>
+  </body>
 </html>
