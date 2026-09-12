@@ -14,7 +14,8 @@ lista.addEventListener("click", function(evento) {
   let id = Number(botao.dataset.id);
 
   if (botao.dataset.acao === "editar") {
-    window.location.href = "reserva.html?editar=" + id;
+    localStorage.setItem("editar_reserva_hospeda", id);
+    window.location.href = "reserva.html";
   } else if (botao.dataset.acao === "excluir") {
     excluirReserva(id);
   }
@@ -114,6 +115,6 @@ function baixarArquivo() {
   let arquivo = new Blob([conteudo], { type: "application/json" });
   let link = document.createElement("a");
   link.href = URL.createObjectURL(arquivo);
-  link.download = "reservas-airbn.json";
+  link.download = "reservas-hospeda.json";
   link.click();
 }

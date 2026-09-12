@@ -1,4 +1,4 @@
-const nomeLocal = "reservas_airbn";
+const nomeLocal = "reservas_hospeda";
 
 const exemplos = [
   {

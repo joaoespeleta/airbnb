@@ -24,7 +24,7 @@ export function proximoId(lista) {
 }
 
 export function pegarImoveis() {
-  let texto = localStorage.getItem("imoveis_airbn");
+  let texto = localStorage.getItem("imoveis_hospeda");
 
   if (texto === null) {
     return [];
@@ -34,5 +34,5 @@ export function pegarImoveis() {
 }
 
 export function salvarImoveis(imoveis) {
-  localStorage.setItem("imoveis_airbn", JSON.stringify(imoveis));
+  localStorage.setItem("imoveis_hospeda", JSON.stringify(imoveis));
 }

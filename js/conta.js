@@ -25,7 +25,7 @@ if (formulario) {
     const mensagem = document.querySelector("#mensagem-conta");
     const email = document.querySelector("#email").value.trim().toLowerCase();
     const senha = document.querySelector("#senha").value.trim();
-    const dados = lerDados("contas_airbn", []);
+    const dados = lerDados("contas_hospeda", []);
 
     let contas = [];
     if (Array.isArray(dados)) {
@@ -73,7 +73,7 @@ if (formulario) {
       };
 
       contas.push(conta);
-      localStorage.setItem("contas_airbn", JSON.stringify(contas));
+      localStorage.setItem("contas_hospeda", JSON.stringify(contas));
       window.location.href = "login.html";
     } else {
       if (conta === null) {

@@ -1,4 +1,4 @@
-# Planejamento do projeto - Airbn
+# Planejamento do projeto - Hospedá
 
 ## Tema escolhido
 
@@ -6,7 +6,7 @@ Sistema de reservas de casas e apartamentos para períodos curtos, temporadas e 
 
 ## Problema que será resolvido
 
-Pessoas que planejam uma viagem precisam organizar informações como destino, acomodação, datas, número de hóspedes e custo previsto. Muitas vezes esses dados ficam separados em anotações ou mensagens. O Airbn reúne as informações e permite consultar ou alterar cada reserva.
+Pessoas que planejam uma viagem precisam organizar informações como destino, acomodação, datas, número de hóspedes e custo previsto. Muitas vezes esses dados ficam separados em anotações ou mensagens. O Hospedá reúne as informações e permite consultar ou alterar cada reserva.
 
 ## Público-alvo
 

@@ -1,4 +1,3 @@
-import { lerParametro } from "./endereco.js";
 import { pegarReservas, salvarReservas } from "./dados.js";
 import { calcularNoites, validar } from "./validacao.js";
 import { dinheiro, pegarImoveis, proximoId, textoSeguro } from "./util.js";
@@ -54,7 +53,6 @@ document.querySelector("#observacoes").addEventListener("input", function() {
 
 document.querySelector("#checkin").addEventListener("change", atualizarPrevisao);
 document.querySelector("#checkout").addEventListener("change", atualizarPrevisao);
-document.querySelector("#busca-imovel").addEventListener("input", mostrarImoveisParaReserva);
 
 document.querySelector("#lista-imoveis-reserva").addEventListener("click", function(evento) {
   let botao = evento.target.closest("button");
@@ -128,7 +126,8 @@ function atualizarPrevisao() {
 }
 
 function prepararFormulario() {
-  let id = Number(lerParametro("editar"));
+  let id = Number(localStorage.getItem("editar_reserva_hospeda"));
+  localStorage.removeItem("editar_reserva_hospeda");
 
   if (id > 0) {
     for (let reserva of reservas) {
@@ -157,33 +156,28 @@ function prepararFormulario() {
 function mostrarImoveisParaReserva() {
   let listaImoveis = document.querySelector("#lista-imoveis-reserva");
   let semImoveis = document.querySelector("#sem-imoveis-reserva");
-  let busca = document.querySelector("#busca-imovel").value.toLowerCase();
   let imoveis = pegarImoveis();
   let encontrados = 0;
 
   listaImoveis.innerHTML = "";
 
   for (let imovel of imoveis) {
-    let texto = (imovel.nome + " " + imovel.cidade + " " + imovel.tipo).toLowerCase();
-
-    if (texto.includes(busca)) {
-      let cartao = document.createElement("article");
-      cartao.className = "cartao-reserva";
-      cartao.innerHTML = `
-        <h2>${textoSeguro(imovel.nome)}</h2>
-        <p class="subtitulo">${textoSeguro(imovel.tipo)} em ${textoSeguro(imovel.cidade)}</p>
-        <div class="dados-cartao">
-          <div><span>Diária</span><b>${dinheiro(imovel.diaria)}</b></div>
-          <div><span>Hóspedes</span><b>${imovel.hospedes}</b></div>
-        </div>
-        <p>${textoSeguro(imovel.descricao || "")}</p>
-        <div class="rodape-cartao">
-          <strong>${textoSeguro(imovel.tipo)}</strong>
-          <button type="button" data-id="${imovel.id}">Escolher</button>
-        </div>`;
-      listaImoveis.appendChild(cartao);
-      encontrados++;
-    }
+    let cartao = document.createElement("article");
+    cartao.className = "cartao-reserva";
+    cartao.innerHTML = `
+      <h2>${textoSeguro(imovel.nome)}</h2>
+      <p class="subtitulo">${textoSeguro(imovel.tipo)} em ${textoSeguro(imovel.cidade)}</p>
+      <div class="dados-cartao">
+        <div><span>Diária</span><b>${dinheiro(imovel.diaria)}</b></div>
+        <div><span>Hóspedes</span><b>${imovel.hospedes}</b></div>
+      </div>
+      <p>${textoSeguro(imovel.descricao || "")}</p>
+      <div class="rodape-cartao">
+        <strong>${textoSeguro(imovel.tipo)}</strong>
+        <button type="button" data-id="${imovel.id}">Escolher</button>
+      </div>`;
+    listaImoveis.appendChild(cartao);
+    encontrados++;
   }
 
   if (encontrados === 0) {
