@@ -6,7 +6,9 @@ const destinos = [
   { cidade: "São Paulo", estado: "São Paulo", sigla: "SP", descricao: "Apartamentos para ficar perto dos passeios da capital." },
   { cidade: "Rio de Janeiro", estado: "Rio de Janeiro", sigla: "RJ", descricao: "Opções para conhecer a cidade e aproveitar a praia." },
   { cidade: "Florianópolis", estado: "Santa Catarina", sigla: "SC", descricao: "Casas e apartamentos para uma temporada na ilha." },
-  { cidade: "Gramado", estado: "Rio Grande do Sul", sigla: "RS", descricao: "Um destino para passear pela serra gaúcha." }
+  { cidade: "Gramado", estado: "Rio Grande do Sul", sigla: "RS", descricao: "Um destino para passear pela serra gaúcha." },
+  { cidade: "Barueri", estado: "São Paulo", sigla: "SP", descricao: "Destino para aproveitar a chuva." }
+
 ];
 
 // Troca os acentos mais comuns para facilitar a busca por cidades.
