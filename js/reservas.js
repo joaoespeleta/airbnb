@@ -8,6 +8,7 @@ const lista = document.querySelector("#lista-reservas");
 console.log("Reservas na listagem:", reservas.length);
 mostrarReservas();
 
+// Trata os botoes de editar e excluir dentro da lista de reservas.
 lista.addEventListener("click", function(evento) {
   let botao = evento.target.closest("button");
   if (botao === null) return;
@@ -34,6 +35,7 @@ document.querySelector("#limpar").addEventListener("click", function() {
 
 document.querySelector("#baixar").addEventListener("click", baixarArquivo);
 
+// Recria a listagem de reservas e atualiza o resumo da pagina.
 function mostrarReservas() {
   lista.innerHTML = "";
   let encontradas = 0;
@@ -53,6 +55,7 @@ function mostrarReservas() {
   atualizarResumo();
 }
 
+// Monta o cartao visual de uma reserva.
 function criarCartao(reserva, status) {
   let noites = calcularNoites(reserva.checkin, reserva.checkout);
   let cartao = document.createElement("article");
@@ -77,6 +80,7 @@ function criarCartao(reserva, status) {
   return cartao;
 }
 
+// Define se a reserva ainda esta proxima ou se ja finalizou.
 function pegarStatus(reserva) {
   let hoje = new Date();
   let dataSaida = new Date(reserva.checkout + "T23:59:00");
@@ -84,6 +88,7 @@ function pegarStatus(reserva) {
   return "proximas";
 }
 
+// Soma quantidade de reservas, noites e valor total.
 function atualizarResumo() {
   let noites = 0;
   let valor = 0;
@@ -100,6 +105,7 @@ function atualizarResumo() {
   console.log("Resumo das reservas:", reservas.length, "reservas,", noites, "noites,", dinheiro(valor));
 }
 
+// Exclui uma reserva especifica depois da confirmacao do usuario.
 function excluirReserva(id) {
   if (confirm("Tem certeza que deseja excluir esta reserva?")) {
     for (let i = 0; i < reservas.length; i++) {
@@ -114,6 +120,7 @@ function excluirReserva(id) {
   }
 }
 
+// Gera um arquivo JSON com as reservas atuais para download.
 function baixarArquivo() {
   let conteudo = JSON.stringify(reservas, null, 2);
   let arquivo = new Blob([conteudo], { type: "application/json" });

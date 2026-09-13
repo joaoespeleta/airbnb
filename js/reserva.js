@@ -9,6 +9,7 @@ console.log("Reservas carregadas:", reservas.length);
 prepararFormulario();
 mostrarImoveisParaReserva();
 
+// Valida os dados da reserva e salva como cadastro novo ou edicao.
 formulario.addEventListener("submit", function(evento) {
   evento.preventDefault();
   let dados = lerCampos();
@@ -64,6 +65,7 @@ document.querySelector("#lista-imoveis-reserva").addEventListener("click", funct
   escolherImovel(Number(botao.dataset.id));
 });
 
+// Le os campos do formulario e monta o objeto usado na validacao/salvamento.
 function lerCampos() {
   let id = Number(document.querySelector("#id-reserva").value);
   if (id === 0) id = proximoId(reservas);
@@ -83,6 +85,7 @@ function lerCampos() {
   };
 }
 
+// Mostra mensagens de erro ao lado dos campos invalidos.
 function mostrarErros(erros) {
   let temErro = false;
   let campos = ["imovel", "nome", "hospedes", "acomodacao", "destino", "checkin", "checkout", "diaria"];
@@ -104,6 +107,7 @@ function mostrarErros(erros) {
   return temErro;
 }
 
+// Atualiza a mensagem principal de sucesso ou falha do formulario.
 function mostrarMensagem(texto, sucesso) {
   let caixa = document.querySelector("#mensagem");
   caixa.textContent = texto;
@@ -115,6 +119,7 @@ function mostrarMensagem(texto, sucesso) {
   }
 }
 
+// Calcula a previsao de valor conforme as datas e a diaria escolhidas.
 function atualizarPrevisao() {
   let entrada = document.querySelector("#checkin").value;
   let saida = document.querySelector("#checkout").value;
@@ -129,6 +134,7 @@ function atualizarPrevisao() {
   }
 }
 
+// Se veio da tela de listagem, carrega a reserva antiga para edicao.
 function prepararFormulario() {
   let id = Number(localStorage.getItem("editar_reserva_hospeda"));
   localStorage.removeItem("editar_reserva_hospeda");
@@ -157,6 +163,7 @@ function prepararFormulario() {
   }
 }
 
+// Exibe os imoveis cadastrados para que o hospede escolha um deles.
 function mostrarImoveisParaReserva() {
   let listaImoveis = document.querySelector("#lista-imoveis-reserva");
   let semImoveis = document.querySelector("#sem-imoveis-reserva");
@@ -192,6 +199,7 @@ function mostrarImoveisParaReserva() {
   }
 }
 
+// Copia os dados do imovel escolhido para os campos da reserva.
 function escolherImovel(id) {
   let imoveis = pegarImoveis();
 

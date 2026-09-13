@@ -1,5 +1,5 @@
 const nomeLocal = "reservas_hospeda";
-
+// Mock de dados.
 const exemplos = [
   {
     id: 1,
@@ -25,6 +25,7 @@ const exemplos = [
   }
 ];
 
+// Busca as reservas salvas; se nao existir nada, cria reservas de exemplo.
 export function pegarReservas() {
   let texto = localStorage.getItem(nomeLocal);
 
@@ -36,6 +37,7 @@ export function pegarReservas() {
   }
 }
 
+// Salva a lista de reservas no localStorage.
 export function salvarReservas(lista) {
   localStorage.setItem(nomeLocal, JSON.stringify(lista));
 }

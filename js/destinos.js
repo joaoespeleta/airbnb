@@ -1,3 +1,4 @@
+// Mock de dados.
 const destinos = [
   {
     cidade: "Ubatuba",
@@ -39,6 +40,7 @@ const destinos = [
 
 console.log("Destinos carregados:", destinos.length);
 
+// Cria os cartoes de destinos disponiveis e adiciona todos na pagina.
 for (let destino of destinos) {
   let cartao = document.createElement("article");
   cartao.className = "cartao-reserva";

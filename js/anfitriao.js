@@ -6,6 +6,7 @@ const formAnfitriao = document.querySelector("#form-anfitriao");
 console.log("Imóveis carregados:", imoveis.length);
 mostrarImoveis();
 
+// Salva um novo imovel ou atualiza um cadastro existente do anfitriao.
 formAnfitriao.addEventListener("submit", function(evento) {
   evento.preventDefault();
 
@@ -59,6 +60,7 @@ formAnfitriao.addEventListener("submit", function(evento) {
   }
 });
 
+// Identifica se o clique na lista foi para editar ou excluir um imovel.
 document.querySelector("#lista-imoveis").addEventListener("click", function(evento) {
   let botao = evento.target.closest("button");
   if (botao === null) return;
@@ -74,6 +76,7 @@ document.querySelector("#lista-imoveis").addEventListener("click", function(even
   }
 });
 
+// Monta os cartoes dos imoveis cadastrados na tela.
 function mostrarImoveis() {
   let listaImoveis = document.querySelector("#lista-imoveis");
   let semImoveis = document.querySelector("#sem-imoveis");
@@ -107,6 +110,7 @@ function mostrarImoveis() {
   }
 }
 
+// Preenche o formulario com os dados do imovel selecionado para edicao.
 function editarImovel(id) {
   for (let imovel of imoveis) {
     if (imovel.id === id) {
@@ -124,6 +128,7 @@ function editarImovel(id) {
   }
 }
 
+// Remove o imovel da lista depois da confirmacao do usuario.
 function excluirImovel(id) {
   if (confirm("Deseja excluir este imóvel?")) {
     for (let i = 0; i < imoveis.length; i++) {

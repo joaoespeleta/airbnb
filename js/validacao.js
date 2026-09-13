@@ -1,3 +1,4 @@
+// Calcula a quantidade de noites entre as datas de entrada e saida.
 export function calcularNoites(entrada, saida) {
   if (entrada === "" || saida === "") {
     return 0;
@@ -11,6 +12,7 @@ export function calcularNoites(entrada, saida) {
   return noites;
 }
 
+// Verifica as regras principais antes de permitir salvar uma reserva.
 export function validar(dados) {
   let erros = {};
   let noites = calcularNoites(dados.checkin, dados.checkout);

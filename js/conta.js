@@ -1,4 +1,5 @@
 function lerDados(chave, padrao) {
+  // Le os dados salvos no navegador e usa um valor padrao se algo falhar.
   try {
     let dados = JSON.parse(localStorage.getItem(chave));
     if (dados === null) {
@@ -26,11 +27,13 @@ const cadastro = document.querySelector("#form-cadastro");
 const login = document.querySelector("#form-login");
 let formulario = cadastro;
 
+// Usa o mesmo arquivo para a tela de cadastro e para a tela de login.
 if (formulario === null) {
   formulario = login;
 }
 
 if (formulario) {
+  // Valida os campos e decide se deve criar conta nova ou fazer login.
   formulario.addEventListener("submit", function(evento) {
     evento.preventDefault();
 
