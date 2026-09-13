@@ -32,6 +32,37 @@
   font-size: 18px;
 }
 
+.busca-destino {
+  max-width: 520px;
+  margin-top: 26px;
+}
+
+.busca-destino label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.busca-destino div {
+  display: flex;
+  padding: 6px;
+  border: 1px solid #cdd5d1;
+  border-radius: 8px;
+  background: white;
+}
+
+.busca-destino input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px;
+  border: 0;
+  outline: 0;
+}
+
+.busca-destino button {
+  flex-shrink: 0;
+}
+
 .ver-destinos {
   display: inline-block;
   margin-top: 16px;
@@ -152,6 +183,15 @@
     width: 100%;
     max-width: 360px;
     align-self: center;
+  }
+
+  .busca-destino div {
+    display: block;
+  }
+
+  .busca-destino button {
+    width: 100%;
+    margin-top: 6px;
   }
 
   .passos {

@@ -10,6 +10,18 @@ function lerDados(chave, padrao) {
   }
 }
 
+const linksMenu = document.querySelectorAll("nav a");
+
+for (let link of linksMenu) {
+  link.addEventListener("mouseenter", function() {
+    link.classList.add("menu-hover");
+  });
+
+  link.addEventListener("mouseleave", function() {
+    link.classList.remove("menu-hover");
+  });
+}
+
 const cadastro = document.querySelector("#form-cadastro");
 const login = document.querySelector("#form-login");
 let formulario = cadastro;
@@ -74,6 +86,8 @@ if (formulario) {
 
       contas.push(conta);
       localStorage.setItem("contas_hospeda", JSON.stringify(contas));
+      console.log("Conta cadastrada:", conta);
+      console.log("Total de contas cadastradas:", contas.length);
       window.location.href = "login.html";
     } else {
       if (conta === null) {
@@ -86,6 +100,8 @@ if (formulario) {
         return;
       }
 
+      console.log("Login realizado:", conta.email);
+      console.log("Tipo da conta:", conta.tipo);
       window.location.href = "index.html";
     }
   });

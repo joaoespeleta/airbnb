@@ -21,26 +21,23 @@
         <a href="login.html">Entrar</a>
         <a href="cadastro.html">Cadastre-se</a>
       </nav>
-  </header>
-  <main class="conteudo pagina-interna">
-    <div class="cabecalho-pagina">
-      <h1>Encontre seu destino</h1>
-      <p>Estas são as opções de exemplo do projeto. Escolha uma cidade para começar sua reserva.</p>
-    </div>
-    <form action="destinos.html" method="get" class="busca-destino busca-na-lista">
-      <label for="destino-busca">Cidade ou estado</label>
-      <div><input id="destino-busca" name="destino" type="search" placeholder="Ex.: São Paulo ou SP" maxlength="70"><button class="botao botao-verde" type="submit">Buscar</button></div>
-    </form>
-    <p id="resultado-busca" role="status"></p>
-    <section id="lista-destinos" class="lista-reservas"></section>
-    <div id="destino-nao-encontrado" class="sem-reservas" hidden>
-      <h2>Não encontramos esse destino</h2>
-      <p>Tente outra cidade ou consulte a lista completa.</p>
-      <a class="botao botao-verde" href="destinos.html">Ver todos os destinos</a>
-    </div>
-  </main>
-  <footer><p><strong>Hospedá</strong> · Projeto acadêmico de Desenvolvimento Web II</p><p>Mackenzie · 2026</p></footer>
-  <script type="module" src="js/destinos.js"></script>
-<script type="module" src="js/conta.js"></script>
-</body>
+    </header>
+
+    <main class="conteudo pagina-interna">
+      <div class="cabecalho-pagina">
+        <h1>Destinos</h1>
+        <p>Estas são as opções de exemplo do projeto.</p>
+      </div>
+
+      <section id="lista-destinos" class="lista-reservas"></section>
+    </main>
+
+    <footer>
+      <p><strong>Hospedá</strong> · Projeto acadêmico de Desenvolvimento Web II</p>
+      <p>Mackenzie · 2026</p>
+    </footer>
+
+    <script src="js/destinos.js"></script>
+    <script src="js/conta.js"></script>
+  </body>
 </html>

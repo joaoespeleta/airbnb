@@ -3,6 +3,7 @@ import { dinheiro, pegarImoveis, proximoId, salvarImoveis, textoSeguro } from ".
 let imoveis = pegarImoveis();
 const formAnfitriao = document.querySelector("#form-anfitriao");
 
+console.log("Imóveis carregados:", imoveis.length);
 mostrarImoveis();
 
 formAnfitriao.addEventListener("submit", function(evento) {
@@ -35,6 +36,7 @@ formAnfitriao.addEventListener("submit", function(evento) {
       imovel.id = proximoId(imoveis);
       imoveis.push(imovel);
       mensagem.textContent = "Imóvel cadastrado com sucesso.";
+      console.log("Imóvel cadastrado:", imovel);
     } else {
       for (let i = 0; i < imoveis.length; i++) {
         if (imoveis[i].id === id) {
@@ -42,10 +44,12 @@ formAnfitriao.addEventListener("submit", function(evento) {
         }
       }
       mensagem.textContent = "Imóvel atualizado com sucesso.";
+      console.log("Imóvel atualizado:", imovel);
     }
 
     mensagem.style.color = "#356859";
     salvarImoveis(imoveis);
+    console.log("Total de imóveis:", imoveis.length);
     formAnfitriao.reset();
     document.querySelector("#id-imovel").value = "";
     document.querySelector("#hospedes-imovel").value = 1;
@@ -115,6 +119,7 @@ function editarImovel(id) {
       document.querySelector("#descricao-imovel").value = imovel.descricao;
       document.querySelector("#titulo-imovel").textContent = "Editar imóvel";
       document.querySelector("#salvar-imovel").textContent = "Atualizar imóvel";
+      console.log("Editando imóvel:", imovel);
     }
   }
 }
@@ -123,10 +128,12 @@ function excluirImovel(id) {
   if (confirm("Deseja excluir este imóvel?")) {
     for (let i = 0; i < imoveis.length; i++) {
       if (imoveis[i].id === id) {
+        console.log("Imóvel excluído:", imoveis[i]);
         imoveis.splice(i, 1);
       }
     }
     salvarImoveis(imoveis);
+    console.log("Total de imóveis após exclusão:", imoveis.length);
     mostrarImoveis();
   }
 }

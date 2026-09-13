@@ -5,6 +5,7 @@ import { dinheiro, pegarImoveis, proximoId, textoSeguro } from "./util.js";
 let reservas = pegarReservas();
 const formulario = document.querySelector("#form-reserva");
 
+console.log("Reservas carregadas:", reservas.length);
 prepararFormulario();
 mostrarImoveisParaReserva();
 
@@ -28,12 +29,15 @@ formulario.addEventListener("submit", function(evento) {
     if (posicao >= 0) {
       reservas[posicao] = dados;
       mostrarMensagem("Reserva atualizada com sucesso!", true);
+      console.log("Reserva atualizada:", dados);
     } else {
       reservas.push(dados);
       mostrarMensagem("Reserva cadastrada com sucesso!", true);
+      console.log("Reserva cadastrada:", dados);
     }
 
     salvarReservas(reservas);
+    console.log("Total de reservas:", reservas.length);
     formulario.reset();
     document.querySelector("#hospedes").value = 1;
     document.querySelector("#id-reserva").value = "";
@@ -159,6 +163,7 @@ function mostrarImoveisParaReserva() {
   let imoveis = pegarImoveis();
   let encontrados = 0;
 
+  console.log("Imóveis disponíveis para reserva:", imoveis.length);
   listaImoveis.innerHTML = "";
 
   for (let imovel of imoveis) {
@@ -199,6 +204,7 @@ function escolherImovel(id) {
       document.querySelector("#hospedes").max = imovel.hospedes;
       document.querySelector("#erro-imovel").textContent = "";
       mostrarMensagem("Imóvel escolhido: " + imovel.nome, true);
+      console.log("Imóvel escolhido para reserva:", imovel);
       atualizarPrevisao();
     }
   }

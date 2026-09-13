@@ -5,6 +5,7 @@ import { dataNormal, dinheiro, textoSeguro } from "./util.js";
 let reservas = pegarReservas();
 const lista = document.querySelector("#lista-reservas");
 
+console.log("Reservas na listagem:", reservas.length);
 mostrarReservas();
 
 lista.addEventListener("click", function(evento) {
@@ -96,16 +97,19 @@ function atualizarResumo() {
   document.querySelector("#qtd-reservas").textContent = reservas.length;
   document.querySelector("#total-noites").textContent = noites;
   document.querySelector("#valor-total").textContent = dinheiro(valor);
+  console.log("Resumo das reservas:", reservas.length, "reservas,", noites, "noites,", dinheiro(valor));
 }
 
 function excluirReserva(id) {
   if (confirm("Tem certeza que deseja excluir esta reserva?")) {
     for (let i = 0; i < reservas.length; i++) {
       if (reservas[i].id === id) {
+        console.log("Reserva excluída:", reservas[i]);
         reservas.splice(i, 1);
       }
     }
     salvarReservas(reservas);
+    console.log("Total de reservas após exclusão:", reservas.length);
     mostrarReservas();
   }
 }
@@ -117,4 +121,5 @@ function baixarArquivo() {
   link.href = URL.createObjectURL(arquivo);
   link.download = "reservas-hospeda.json";
   link.click();
+  console.log("Arquivo JSON gerado com", reservas.length, "reservas.");
 }

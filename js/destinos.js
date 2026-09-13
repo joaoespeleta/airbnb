@@ -37,6 +37,8 @@ const destinos = [
   }
 ];
 
+console.log("Destinos carregados:", destinos.length);
+
 for (let destino of destinos) {
   let cartao = document.createElement("article");
   cartao.className = "cartao-reserva";
@@ -44,12 +46,12 @@ for (let destino of destinos) {
   let titulo = document.createElement("h2");
   titulo.textContent = destino.cidade + ", " + destino.sigla;
 
-  let descricao = document.createElement("p");
-  descricao.textContent = destino.descricao;
-
   let textoEstado = document.createElement("p");
   textoEstado.className = "subtitulo";
   textoEstado.textContent = destino.estado;
+
+  let descricao = document.createElement("p");
+  descricao.textContent = destino.descricao;
 
   let link = document.createElement("a");
   link.className = "botao botao-verde";
@@ -59,3 +61,5 @@ for (let destino of destinos) {
   cartao.append(titulo, textoEstado, descricao, link);
   document.querySelector("#lista-destinos").appendChild(cartao);
 }
+
+console.log("Lista de destinos exibida na tela.");
