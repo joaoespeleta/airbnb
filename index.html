@@ -1,76 +1,86 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hospedá - Início</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/home.css" />
-  </head>
-  <body>
-    <header>
-      <a class="logo" href="index.html"><img src="img/logo-hospeda.png" alt="Hospedá - início"></a>
-      <nav>
-        <a href="index.html" class="selecionado" aria-current="page">Início</a>
-        <a href="destinos.html">Destinos</a>
-        <a href="reserva.html">Reservar</a>
-        <a href="reservas.html">Minhas reservas</a>
-        <a href="anfitriao.html">Anfitrião</a>
-        <a href="login.html">Entrar</a>
-        <a href="cadastro.html">Cadastre-se</a>
-      </nav>
-    </header>
-    <main>
-      <section class="banner">
-        <div class="texto-banner">
-          <p class="destaque">TEM MUITO BRASIL PRA CONHECER</p>
-          <h1>Seu próximo canto está aqui.</h1>
-          <p>Do litoral à serra, encontre um lugar para passar uns dias e se sentir em casa.</p>
-          <a class="botao botao-claro" href="destinos.html">Ver destinos</a>
-        </div>
-        <div class="marca-banner">
-          <img src="img/logo-hospeda.png" alt="Hospedá">
-          <p>Viaje pelo Brasil. Sinta-se em casa.</p>
-        </div>
-      </section>
-      <section class="conteudo home-info">
-        <p class="destaque verde">COMO FUNCIONA</p>
-        <h2>Escolha, planeje e boa viagem!</h2>
-        <div class="passos">
-          <article>
-            <b>1</b>
-            <h3>Escolha o destino</h3>
-            <p>Informe onde pretende se hospedar e o tipo de acomodação.</p>
-          </article>
-          <article>
-            <b>2</b>
-            <h3>Preencha as datas</h3>
-            <p>Escolha o check-in, o check-out e veja o valor previsto.</p>
-          </article>
-          <article>
-            <b>3</b>
-            <h3>Acompanhe a reserva</h3>
-            <p>Consulte, edite ou exclua o registro quando precisar.</p>
-          </article>
-        </div>
-      </section>
-      <section class="chamada-anfitriao">
-        <div>
-          <p class="destaque">TEM UM IMÓVEL?</p>
-          <h2>Compartilhe seu espaço com outros viajantes</h2>
-          <p>Tem uma casa ou apartamento? Conheça nossa área de anfitriões.</p>
-        </div>
-        <a class="botao botao-claro" href="anfitriao.html"
-          >Quero ser anfitrião</a
-        >
-      </section>
-    </main>
-    <footer>
-      <p>
-        <strong>Hospedá</strong> · Projeto acadêmico de Desenvolvimento Web II
-      </p>
-      <p>Mackenzie · 2026</p>
-    </footer>
-    <script type="module" src="js/conta.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hospedá - Início</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+
+<body>
+  <header>
+    <a class="logo" href="index.html"><img src="img/logo-hospeda.png" alt="Hospedá - início"></a>
+    <nav>
+      <a href="index.html" class="selecionado">Início</a>
+      <a href="destinos.html">Destinos</a>
+      <a href="reserva.html">Reservar</a>
+      <a href="reservas.html">Minhas reservas</a>
+      <a href="anfitriao.html">Anfitrião</a>
+      <a href="login.html">Entrar</a>
+      <a href="cadastro.html">Cadastre-se</a>
+    </nav>
+  </header>
+  <main>
+    <section class="banner">
+      <div class="texto-banner">
+        <p class="destaque">TEM MUITO BRASIL PRA CONHECER</p>
+        <h1>Seu próximo canto está aqui.</h1>
+        <p>Do litoral à serra, encontre um lugar para passar uns dias e se sentir em casa.</p>
+        <form action="destinos.html" method="get" class="busca-destino">
+          <label for="destino-busca">Para onde você quer ir?</label>
+          <div>
+            <input id="destino-busca" name="destino" type="search" placeholder="Ex.: Ubatuba" maxlength="70" /><button
+              class="botao botao-claro" type="submit">Buscar</button>
+          </div>
+        </form>
+        <a class="ver-destinos" href="destinos.html">
+          Ver todos os destinos →
+        </a>
+      </div>
+      <div class="marca-banner">
+        <img src="img/logo-hospeda.png" alt="Hospedá">
+        <p>Viaje pelo Brasil. Sinta-se em casa.</p>
+      </div>
+    </section>
+    <section class="conteudo home-info">
+      <p class="destaque verde">COMO FUNCIONA</p>
+      <h2>Escolha, planeje e boa viagem!</h2>
+      <div class="passos">
+        <article>
+          <b>1</b>
+          <h3>Escolha o destino</h3>
+          <p>Informe onde pretende se hospedar e o tipo de acomodação.</p>
+        </article>
+        <article>
+          <b>2</b>
+          <h3>Preencha as datas</h3>
+          <p>Escolha o check-in, o check-out e veja o valor previsto.</p>
+        </article>
+        <article>
+          <b>3</b>
+          <h3>Acompanhe a reserva</h3>
+          <p>Consulte, edite ou exclua o registro quando precisar.</p>
+        </article>
+      </div>
+    </section>
+    <section class="chamada-anfitriao">
+      <div>
+        <p class="destaque">TEM UM IMÓVEL?</p>
+        <h2>Compartilhe seu espaço com outros viajantes</h2>
+        <p>Tem uma casa ou apartamento? Conheça nossa área de anfitriões.</p>
+      </div>
+      <a class="botao botao-claro" href="anfitriao.html">Quero ser anfitrião</a>
+    </section>
+  </main>
+  <footer>
+    <p>
+      <strong>Hospedá</strong> · Projeto acadêmico de Desenvolvimento Web II
+    </p>
+    <p>Mackenzie · 2026</p>
+  </footer>
+  <script type="module" src="js/conta.js"></script>
+</body>
+
 </html>

@@ -1,76 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hospedá - Minhas reservas</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/reservas.css" />
-  </head>
-  <body>
-    <header>
-      <a class="logo" href="index.html"
-        ><img src="img/logo-hospeda.png" alt="Hospedá - início"
-      /></a>
-      <nav>
-        <a href="index.html">Início</a>
-        <a href="destinos.html">Destinos</a>
-        <a href="reserva.html">Reservar</a>
-        <a href="reservas.html" class="selecionado" aria-current="page"
-          >Minhas reservas</a
-        >
-        <a href="anfitriao.html">Anfitrião</a>
-        <a href="login.html">Entrar</a>
-        <a href="cadastro.html">Cadastre-se</a>
-      </nav>
-    </header>
-    <main class="conteudo pagina-interna">
-      <div class="topo-reservas">
-        <div class="cabecalho-pagina">
-          <p class="destaque verde">SUAS VIAGENS</p>
-          <h1>Minhas reservas</h1>
-          <p>Consulte, edite ou remova suas estadias.</p>
-        </div>
-        <a class="botao botao-verde" href="reserva.html">+ Nova reserva</a>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hospedá - Minhas reservas</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/reservas.css" />
+</head>
+
+<body>
+  <header>
+    <a class="logo" href="index.html"><img src="img/logo-hospeda.png" alt="Hospedá - início" /></a>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="destinos.html">Destinos</a>
+      <a href="reserva.html">Reservar</a>
+      <a href="reservas.html" class="selecionado">Minhas reservas</a>
+      <a href="anfitriao.html">Anfitrião</a>
+      <a href="login.html">Entrar</a>
+      <a href="cadastro.html">Cadastre-se</a>
+    </nav>
+  </header>
+  <main class="conteudo pagina-interna">
+    <div class="topo-reservas">
+      <div class="cabecalho-pagina">
+        <p class="destaque verde">SUAS VIAGENS</p>
+        <h1>Minhas reservas</h1>
+        <p>Consulte, edite ou remova suas estadias.</p>
       </div>
-      <section class="indicadores">
-        <article>
-          <span>Reservas cadastradas</span><strong id="qtd-reservas">0</strong>
-        </article>
-        <article>
-          <span>Total de noites</span><strong id="total-noites">0</strong>
-        </article>
-        <article>
-          <span>Valor previsto</span><strong id="valor-total">R$ 0,00</strong>
-        </article>
-      </section>
-      <section id="lista-reservas" class="lista-reservas"></section>
-      <div id="sem-reservas" class="sem-reservas">
-        <span>⌂</span>
-        <h2>Nenhuma reserva encontrada</h2>
-        <p>Cadastre uma reserva para ela aparecer aqui.</p>
+      <a class="botao botao-verde" href="reserva.html">+ Nova reserva</a>
+    </div>
+    <section class="indicadores">
+      <article>
+        <span>Reservas cadastradas</span><strong id="qtd-reservas">0</strong>
+      </article>
+      <article>
+        <span>Total de noites</span><strong id="total-noites">0</strong>
+      </article>
+      <article>
+        <span>Valor previsto</span><strong id="valor-total">R$ 0,00</strong>
+      </article>
+    </section>
+    <section id="lista-reservas" class="lista-reservas"></section>
+    <div id="sem-reservas" class="sem-reservas">
+      <span>⌂</span>
+      <h2>Nenhuma reserva encontrada</h2>
+      <p>Cadastre uma reserva para ela aparecer aqui.</p>
+    </div>
+    <section class="arquivo-local">
+      <div>
+        <h2>Cópia dos dados</h2>
+        <p>Baixe as reservas em um arquivo ou limpe os dados salvos.</p>
       </div>
-      <section class="arquivo-local">
-        <div>
-          <h2>Cópia dos dados</h2>
-          <p>Baixe as reservas em um arquivo ou limpe os dados salvos.</p>
-        </div>
-        <div>
-          <button id="baixar" class="botao botao-cinza" type="button">
-            Baixar arquivo</button
-          ><button id="limpar" class="botao botao-perigo" type="button">
-            Limpar tudo
-          </button>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <p>
-        <strong>Hospedá</strong> · Projeto acadêmico de Desenvolvimento Web II
-      </p>
-      <p>Mackenzie · 2026</p>
-    </footer>
-    <script type="module" src="js/reservas.js"></script>
-    <script type="module" src="js/conta.js"></script>
-  </body>
+      <div>
+        <button id="baixar" class="botao botao-cinza" type="button">
+          Baixar arquivo</button><button id="limpar" class="botao botao-perigo" type="button">
+          Limpar tudo
+        </button>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>
+      <strong>Hospedá</strong> · Projeto acadêmico de Desenvolvimento Web II
+    </p>
+    <p>Mackenzie · 2026</p>
+  </footer>
+  <script type="module" src="js/reservas.js"></script>
+  <script type="module" src="js/conta.js"></script>
+</body>
+
 </html>
